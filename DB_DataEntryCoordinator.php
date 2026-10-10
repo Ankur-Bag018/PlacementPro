@@ -98,7 +98,7 @@
 
 <body>
     <form action="DB_ConnectionCoordinatorTable.php" method="POST">
-        <h2 class="form-title">College Admin Data Entry</h2>
+        <h2 class="form-title">College Coordinator Data Entry</h2>
 
         <input type="text" name="E_Id" placeholder="Employee ID" required>
         <input type="text" name="E_Name" placeholder="Employee Name" required>

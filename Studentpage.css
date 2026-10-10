@@ -1,0 +1,154 @@
+body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #fbfdff;
+            overflow-x: hidden;
+            /* Prevents whole page horizontal scroll */
+        }
+
+        nav div ul {
+            border: none;
+            /* background: white; */
+            /* width: 30%; */
+            margin-left: 10px;
+            padding: 20px;
+            /* border: solid black; */
+        }
+
+        nav div ul li {
+            text-decoration: none;
+            color: black;
+            /* border: solid black; */
+            /* padding: 15px; */
+        }
+
+        .navbar {
+            background-color: #6da7e1;
+            padding: 10px 20px;
+            height: 70px;
+            width: 100%;
+            /* background-color: #6798c9; */
+        }
+
+        .navbar-brand {
+            color: rgb(72, 128, 225);
+            font-size: 30px;
+            font-weight: bold;
+            /* box-shadow: -5px -4px 14px 3px rgb(101, 133, 189); */
+            /* background-color: ; */
+        }
+
+        .searchbar {
+            display: grid;
+            place-items: center;
+            height: 70px;
+            width: 100%;
+            background-color: #d3d5d7;
+        }
+
+        .searchbar input[type="search"] {
+            width: 500px;
+            height: 40px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #050202;
+            box-shadow: 0 2px 4px rgba(7, 7, 7, 0.1);
+        }
+
+        /* Responsive width for searchbar on smaller screens */
+        @media (max-width: 600px) {
+            .searchbar input[type="search"] {
+                width: 90vw;
+            }
+        }
+
+        .introduction {
+            display: grid;
+            place-items: center;
+            height: 400px;
+            width: 100%;
+            background-color: #eedfe0;
+            background-image: url("https://media.istockphoto.com/id/2170561826/photo/modern-office-building-by-night-in-paris-france.jpg?b=1&s=612x612&w=0&k=20&c=Udc6TIgsUcIQsgAv8FLdXZIdS_hAjRqHMBvuJXcXyFI=");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .introduction h1 {
+            font-size: 50px;
+            color: #689ae6;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Container for Horizontal Scrolling */
+        .horizontal-scroll-container {
+            display: flex;
+            flex-wrap: nowrap;
+            /* Forces items to stay in one line */
+            overflow-x: auto;
+            /* Enables horizontal scrolling */
+            gap: 30px;
+            padding: 20px 20px 40px 20px;
+            /* Extra bottom padding for scrollbar */
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom styling for the scrollbar to make it look modern */
+        .horizontal-scroll-container::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .horizontal-scroll-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .horizontal-scroll-container::-webkit-scrollbar-thumb {
+            background: #434a53;
+            border-radius: 10px;
+        }
+
+        .horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #585d64;
+        }
+
+        .horizontal-scroll-container .card {
+            flex: 0 0 auto;
+            /* Prevents cards from shrinking */
+            /* border: solid 4px #689ae6; */
+            border-radius: 10px;
+            transition: transform 0.3s;
+            /* Smooth hover effect */
+        }
+
+        .horizontal-scroll-container .card:hover {
+            transform: translateY(-5px);
+            /* Lift card slightly on hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 200px;
+            /* Fixed height for uniformity */
+            object-fit: cover;
+            /* Ensures image covers the area without distortion */
+        }
+
+        .section-title {
+            padding: 30px 20px 0 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Footer styling adjustments */
+        footer {
+            margin-top: 50px;
+        }
