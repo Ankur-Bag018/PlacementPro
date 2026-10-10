@@ -152,7 +152,7 @@
         </select>
 
         <input type="number" step="0.01" name="S_CGPA" placeholder="CGPA">
-        <input type="text" name="S_Phone" placeholder="Phone Number">
+        <input type="tel" name="S_Phone" maxlength="10" pattern="[0-9]{10}" placeholder="Phone Number">
         <input type="email" name="S_Email" placeholder="Email">
         <input type="number" name="S_Active_Backlog" placeholder="Active Backlog">
         <input type="number" step="0.01" name="S_1stYGPA" placeholder="1st Year GPA">

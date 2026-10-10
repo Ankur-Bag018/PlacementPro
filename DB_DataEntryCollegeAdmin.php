@@ -103,7 +103,7 @@
         <input type="text" name="E_Id" placeholder="Employee ID" required>
         <input type="text" name="E_Name" placeholder="Employee Name" required>
         <input type="email" name="E_Email" placeholder="Employee Email" required>
-        <input type="text" name="E_Phone" placeholder="Employee Phone" required>
+        <input type="tel" name="E_Phone" maxlength="10" pattern="[0-9]{10}" placeholder="Employee Phone" required>
         <input type="password" name="E_Password" placeholder="Password" required>
 
         <textarea name="E_Address" placeholder="Address" required></textarea>
