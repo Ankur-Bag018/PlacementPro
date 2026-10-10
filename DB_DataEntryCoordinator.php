@@ -46,6 +46,7 @@
         input[type="text"],
         input[type="email"],
         input[type="password"],
+        input[type="tel"],
         textarea {
             width: 100%;
             padding: 12px 15px;
@@ -69,6 +70,7 @@
         input[type="text"]:focus,
         input[type="email"]:focus,
         input[type="password"]:focus,
+        input[type="tel"]:focus,
         textarea:focus {
             border-color: #4a90e2;
             outline: none;
