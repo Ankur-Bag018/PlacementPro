@@ -7,27 +7,26 @@ $pass = '';
 
 $message = "";
 
-// ১. ডাটাবেস কানেকশন
 $conn = mysqli_connect($host, $user, $pass, $db);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// ২. ফর্ম সাবমিট হলে ডেটা রিসিভ ও ইনসার্ট করা
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $job_title = trim($_POST['job_title']);
     $company = trim($_POST['company']);
     $description = trim($_POST['description']);
     $cgpa = trim($_POST['CGPA']);
 
-    // Prepared Statement ব্যবহার করে ডেটা ইনসার্ট করা
+   
     $sql = "INSERT INTO joblist (job_title, company, description, CGPA) VALUES (?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
-    
+
     // 's' = string, 'd' = double/float
     mysqli_stmt_bind_param($stmt, "sssd", $job_title, $company, $description, $cgpa);
-    
+
     if (mysqli_stmt_execute($stmt)) {
         $message = "<div class='success-msg'>Job posted successfully in the database!</div>";
     } else {
@@ -40,6 +39,7 @@ mysqli_close($conn);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -139,6 +139,7 @@ mysqli_close($conn);
             text-align: center;
             border: 1px solid #c3e6cb;
         }
+
         .error-msg {
             background-color: #f8d7da;
             color: #721c24;
@@ -150,11 +151,12 @@ mysqli_close($conn);
         }
     </style>
 </head>
+
 <body>
 
     <form action="" method="post">
         <h2>Post a Job</h2>
-        
+
         <!-- PHP মেসেজ দেখানোর জন্য -->
         <?= $message; ?>
 
@@ -166,12 +168,13 @@ mysqli_close($conn);
 
         <label for="description">Job Description:</label>
         <textarea id="description" name="description" placeholder="Write the job details here..." required></textarea>
-        
+
         <label for="CGPA">Required CGPA:</label>
         <input type="text" id="CGPA" name="CGPA" placeholder="e.g. 8.5" required>
-        
+
         <button type="submit">Post Job</button>
     </form>
 
 </body>
+
 </html>
