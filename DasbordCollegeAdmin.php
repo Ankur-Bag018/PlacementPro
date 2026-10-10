@@ -1,182 +1,110 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PlacementPro</title>
-    <!-- Bootstrap 5.3 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="index.css" rel="stylesheet">
+
     <style>
+        :root { --primary: #4880e1; }
+
         body {
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #fbfdff;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background: #fbfdff;
+            font-family: "Segoe UI", sans-serif;
         }
 
-        /* Navbar Enhancements */
         .navbar {
-            background-color: #ffffff !important;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            padding: 15px 20px;
+            background: white;
+            box-shadow: 0 4px 6px #0000000d;
         }
 
         .navbar-brand {
-            color: #4880e1 !important;
+            color: var(--primary);
             font-size: 28px;
             font-weight: 800;
             letter-spacing: 1px;
         }
 
-        .nav-link {
-            font-weight: 500;
-            color: #333 !important;
-            transition: color 0.3s ease;
-        }
+        .nav-link:hover { color: var(--primary); }
 
-        .nav-link:hover {
-            color: #4880e1 !important;
-        }
-
-        /* Hero / Introduction Section */
-        .introduction {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 50vh;
+        .hero {
             min-height: 400px;
-            width: 100%;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://media.istockphoto.com/id/2170561826/photo/modern-office-building-by-night-in-paris-france.jpg?b=1&s=612x612&w=0&k=20&c=Udc6TIgsUcIQsgAv8FLdXZIdS_hAjRqHMBvuJXcXyFI=");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            display: grid;
+            place-items: center;
+            padding: 40px 15px;
+            background: linear-gradient(#0006, #0006),
+                url("https://media.istockphoto.com/id/2170561826/photo/modern-office-building-by-night-in-paris-france.jpg?b=1&s=612x612&w=0&k=20&c=Udc6TIgsUcIQsgAv8FLdXZIdS_hAjRqHMBvuJXcXyFI=")
+                center/cover no-repeat;
         }
 
-        .introduction h1 {
-            font-size: 3rem;
+        .hero h1 {
+            padding: 20px 30px;
+            background: #fffffff2;
             color: #333;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 20px 40px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            font-size: clamp(1.8rem, 5vw, 3rem);
             font-weight: 700;
+            box-shadow: 0 10px 30px #0003;
         }
 
-        /* Main Content Layout (Role Cards) */
-        main {
-            flex-grow: 1;
-            padding: 60px 20px 20px;
-        }
-
-        .main {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Reset Anchor Tag Styles for Cards */
-        .portal-link {
-            text-decoration: none;
+        .portal {
+            display: block;
+            height: 100%;
+            padding: 30px 20px;
             color: inherit;
-            display: block;
-        }
-
-        /* Individual Role Cards */
-        .member {
-            background-color: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            padding: 40px 30px;
-            width: 100%;
-            min-width: 280px;
-            max-width: 320px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 5px solid #4880e1;
-            box-sizing: border-box;
+            text-decoration: none;
+            background: white;
+            border-top: 5px solid var(--primary);
+            border-radius: 16px;
+            box-shadow: 0 8px 20px #00000014;
+            transition: .3s;
         }
 
-        .portal-link:hover .member {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(72, 128, 225, 0.15);
+        .portal:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px #4880e126;
         }
 
-        .member label {
-            font-size: 22px;
+        .portal h2 {
+            font-size: 21px;
             font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
+        }
+
+        .portal span {
             display: block;
-            cursor: pointer;
-        }
-
-        /* Button Styling (Now configured for a DIV) */
-        .form-btn {
-            background-color: #4880e1;
+            padding: 12px;
             color: white;
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: 600;
+            background: var(--primary);
             border-radius: 8px;
-            width: 100%;
-            transition: background-color 0.3s ease, transform 0.1s ease;
-            display: inline-block;
-            box-sizing: border-box;
+            font-weight: 600;
         }
 
-        .portal-link:hover .form-btn {
-            background-color: #3566b8;
-        }
+        .portal:hover span { background: #3566b8; }
 
-        .portal-link:active .form-btn {
-            transform: scale(0.98);
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .introduction h1 {
-                font-size: 2rem;
-                padding: 15px 25px;
-            }
-
-            .member {
-                padding: 30px 20px;
-            }
-
-            .recruitercompany {
-                font-size: 13px;
-                padding: 8px 16px;
-            }
-
-            .recruitercompany img {
-                width: 20px;
-                height: 20px;
-            }
+        .portal:focus-visible {
+            outline: 3px solid #244d96;
+            outline-offset: 4px;
         }
     </style>
 </head>
 
 <body>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="About.php">PlacementPro</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="index.php">PlacementPro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -187,52 +115,46 @@
         </div>
     </nav>
 
-    <!-- Header Image -->
-    <header>
-        <div class="introduction">
-            <h1>Welcome to PlacementPro</h1>
-        </div>
+    <!-- Hero -->
+    <header class="hero">
+        <h1>Welcome to PlacementPro</h1>
     </header>
 
-    <!-- Main Content for Job Sections -->
-    <main>
-        <div class="main">
-            <!-- Student Card -->
-            <a href="DB_DataEntryStudent.php" class="portal-link">
-                <div class="member" id="student">
-                    <label>Student Data Entry</label>
-                    <div class="form-btn">Enter Student Data</div>
-                </div>
-            </a>
+    <!-- Data Entry Portals -->
+    <main class="container py-5">
+        <div class="row g-4 justify-content-center">
 
-            <!-- Recruiter Card -->
-            <a href="DB_DataEntryRecruter.php" class="portal-link">
-                <div class="member" id="recruiter">
-                    <label>Recruiter Data Entry</label>
-                    <div class="form-btn">Enter Recruiter Data</div>
-                </div>
-            </a>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <a class="portal" href="DB_DataEntryStudent.php">
+                    <h2>Student Data Entry</h2>
+                    <span>Enter Student Data</span>
+                </a>
+            </div>
 
-            <!-- Placement Coordinator Card -->
-            <a href="DB_DataEntryCoordinator.php" class="portal-link">
-                <div class="member" id="coordinator">
-                    <label>Coordinator Data Entry</label>
-                    <div class="form-btn">Enter Coordinator Data</div>
-                </div>
-            </a>
-            <a href="DB_DataEntryCollegeAdmin.php" class="portal-link">
-                <div class="member" id="college-admin">
-                    <label>College Admin Data Entry</label>
-                    <div class="form-btn">Enter College Admin Data</div>
-                </div>
-            </a>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <a class="portal" href="DB_DataEntryRecruter.php">
+                    <h2>Recruiter Data Entry</h2>
+                    <span>Enter Recruiter Data</span>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <a class="portal" href="DB_DataEntryCoordinator.php">
+                    <h2>Coordinator Data Entry</h2>
+                    <span>Enter Coordinator Data</span>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <a class="portal" href="DB_DataEntryCollegeAdmin.php">
+                    <h2>College Admin Data Entry</h2>
+                    <span>Enter College Admin Data</span>
+                </a>
+            </div>
+
         </div>
     </main>
 
-
-
-    <!-- Bootstrap Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

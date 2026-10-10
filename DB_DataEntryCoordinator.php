@@ -1,6 +1,7 @@
 <!-- http://localhost/PlacementPro/Main_Code/DB_CoordinatorDataEntry.php -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* height এর বদলে min-height দেওয়া হয়েছে যেন স্ক্রল করলে ডিজাইন না ভাঙে */
+            min-height: 100vh;
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
@@ -52,15 +53,16 @@
             border: 1px solid #cccccc;
             border-radius: 6px;
             font-size: 16px;
-            font-family: inherit; /* Textarea এর ফন্ট ঠিক রাখার জন্য */
+            font-family: inherit;
+            
             box-sizing: border-box;
             transition: all 0.3s ease;
         }
 
         /* Textarea Specific Styling */
         textarea {
-            resize: vertical; /* শুধু ওপর-নিচে বড় করা যাবে */
-            min-height: 80px; /* Address বক্সের জন্য পারফেক্ট সাইজ */
+            resize: vertical;
+            min-height: 80px;
         }
 
         /* Input Focus Effect */
@@ -93,19 +95,21 @@
         }
     </style>
 </head>
+
 <body>
     <form action="DB_ConnectionCoordinatorTable.php" method="POST">
         <h2 class="form-title">College Admin Data Entry</h2>
-        
+
         <input type="text" name="E_Id" placeholder="Employee ID" required>
         <input type="text" name="E_Name" placeholder="Employee Name" required>
         <input type="email" name="E_Email" placeholder="Employee Email" required>
         <input type="text" name="E_Phone" placeholder="Employee Phone" required>
         <input type="password" name="E_Password" placeholder="Password" required>
-        
+
         <textarea name="E_Address" placeholder="Address" required></textarea>
-        
+
         <button type="submit" name="submit" class="submit-btn">Register Admin</button>
     </form>
 </body>
+
 </html>

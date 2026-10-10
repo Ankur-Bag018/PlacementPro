@@ -1,45 +1,4 @@
-<!-- http://localhost/PlacementPro/Main_Code/LoginStudent.php -->
-<?php
-session_start();
-$conn = mysqli_connect("localhost", "root", "", "placementpro");
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-if (isset($_POST["login"])) {
-    $roll_no = trim($_POST['roll_no']);
-    $input_password =$_POST['password'];
-
-    $sql = "SELECT S_Id, S_Name, S_Roll, S_Password FROM `student details` WHERE S_Roll = ?";
-    $stmt = mysqli_prepare($conn,$sql);
-    
-    mysqli_stmt_bind_param($stmt, "s", $roll_no);
-    mysqli_stmt_execute($stmt);
-    
-    $result = mysqli_stmt_get_result($stmt);
-
-    if ($row = mysqli_fetch_assoc($result)) {
-        
-        if (password_verify($input_password,$row['S_Password'])) {
-            $_SESSION['student_roll'] =$row['S_Roll'];
-            $_SESSION['student_name'] =$row['S_Name'];
-            
-            echo "<script>alert('Login successful!');</script>";
-            echo "<script>window.location.href='DasbordStudent.php';</script>";
-        } else {
-            echo "<script>alert('Incorrect Password!');</script>";
-            echo "<script>window.history.back();</script>";
-        }
-    } else {
-        echo "<script>alert('No account found with this Roll Number!');</script>";
-        echo "<script>window.history.back();</script>";
-    }
-    
-    mysqli_stmt_close($stmt);
-}
-mysqli_close($conn);
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,9 +7,128 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Login - PlacementPro</title>
-    <link href="studentlogin.css" rel="stylesheet">
+    <!-- <link href="studentlogin.css" rel="stylesheet"> -->
     <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fbfdff;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
+        /* The Login Card Container */
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 6px solid #4880e1;
+            /* PlacementPro Blue */
+            padding: 40px 30px;
+            box-sizing: border-box;
+        }
+
+        /* Branding and Titles */
+        .brand {
+            text-align: center;
+            color: #4880e1;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+        }
+
+        /* Form Layout */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Input Fields */
+        .input {
+            padding: 14px 15px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 15px;
+            color: #2d3748;
+            background-color: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        .input::placeholder {
+            color: #a0aec0;
+        }
+
+        .input:focus {
+            outline: none;
+            border-color: #4880e1;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(72, 128, 225, 0.2);
+        }
+
+        /* Links Formatting */
+        .forgot-password {
+            text-align: right;
+            margin: -5px 0 5px 0;
+        }
+
+        .create-account {
+            text-align: center;
+            margin: 15px 0 0 0;
+            font-size: 14px;
+            color: #718096;
+        }
+
+        .page-link-label {
+            font-size: 14px;
+            color: #4880e1;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .page-link-label:hover {
+            color: #3566b8;
+            text-decoration: underline;
+        }
+
+        /* Login Button */
+        .form-btn {
+            background-color: #4880e1;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .form-btn:hover {
+            background-color: #3566b8;
+        }
+
+        .form-btn:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
 
@@ -62,7 +140,7 @@ mysqli_close($conn);
             <div class="brand">PlacementPro</div>
             <p class="title">Student Login</p>
 
-            <form class="form" action="" method="POST">
+            <form class="form" action="DB_LoginStudent.php" method="POST">
                 <input type="text" class="input" name="roll_no" placeholder="Roll Number" required>
                 <input type="password" class="input" name="password" placeholder="Password" required>
                 <button type="submit" name="login" class="form-btn">Log in</button>
