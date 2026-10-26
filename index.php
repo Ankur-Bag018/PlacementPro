@@ -242,7 +242,6 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="About.php">
-                <!-- inline height="35" সরিয়ে CSS দিয়ে কন্ট্রোল করা হয়েছে -->
                 <img src="Logo.jpeg" alt="PlacementPro Logo" class="d-inline-block align-text-center me-2">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
