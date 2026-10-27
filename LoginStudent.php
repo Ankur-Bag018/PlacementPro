@@ -1,4 +1,69 @@
+<?php
+session_start(); // Start the session
+$message = "";
 
+// Check if the form was submitted (note your button name is 'login')
+if (isset($_POST['login'])) {
+    
+    // Database connection details
+    $servername = "127.0.0.1";
+    $username = "root";
+    $password = "";
+    $dbname = "placementpro"; 
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Retrieve and sanitize form data
+    $email = trim($_POST['email']);
+    $form_password = trim($_POST['password']);
+
+    // Prepare SQL to fetch the user by email
+    $sql = "SELECT user_id, full_name, password_hash, role FROM users WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt) {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Check if a user with this email exists
+        if ($result->num_rows == 1) {
+            $user = $result->fetch_assoc();
+            
+            // Verify that this user is actually a Student
+            if ($user['role'] !== 'Student') {
+                $message = "Access denied. This login portal is for Students only.";
+            } 
+            // Verify the entered password against the hashed password in the database
+            else if (password_verify($form_password, $user['password_hash'])) {
+                
+                // Password is correct, setup session variables
+                $_SESSION['user_id'] = $user['user_id'];
+                $_SESSION['full_name'] = $user['full_name'];
+                $_SESSION['role'] = $user['role'];
+                
+                // Redirect to the Student dashboard
+                header("Location: DasbordStudent.php"); 
+                exit();
+            } else {
+                $message = "Incorrect password. Please try again.";
+            }
+        } else {
+            $message = "No account found with this email address.";
+        }
+        $stmt->close();
+    } else {
+        $message = "Database query failed.";
+    }
+    $conn->close();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +74,12 @@
     <title>Student Login - PlacementPro</title>
     <!-- <link href="studentlogin.css" rel="stylesheet"> -->
     <style>
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
         body {
             margin: 0;
             padding: 20px;
@@ -140,9 +211,18 @@
             <div class="brand">PlacementPro</div>
             <p class="title">Student Login</p>
 
-            <form class="form" action="DB_LoginStudent.php" method="POST">
-                <input type="text" class="input" name="roll_no" placeholder="Roll Number" required>
+            <!-- Display Error Message -->
+            <?php if (!empty($message)): ?>
+                <p class="error-message"><?php echo $message; ?></p>
+            <?php endif; ?>
+
+            <!-- Action is empty so it submits to itself -->
+            <form class="form" action="" method="POST">
+                
+                <!-- Changed to email to match database schema -->
+                <input type="email" class="input" name="email" placeholder="Email Address" required>
                 <input type="password" class="input" name="password" placeholder="Password" required>
+                
                 <button type="submit" name="login" class="form-btn">Log in</button>
 
             </form>

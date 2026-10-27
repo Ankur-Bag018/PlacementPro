@@ -1,12 +1,71 @@
+<?php
+session_start(); // Start the session to store user login state
+$message = "";
+
+// Check if the form was submitted
+if (isset($_POST['login_btn'])) {
+    
+    // Database connection
+    $servername = "127.0.0.1";
+    $username = "root";
+    $password = "";
+    $dbname = "placementpro"; 
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Retrieve form data
+    $email = trim($_POST['email']);
+    $form_password = trim($_POST['e_password']);
+
+    // Prepare SQL to fetch the user by email
+    $sql = "SELECT user_id, full_name, password_hash, role FROM users WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    
+    if ($stmt) {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Check if the user exists
+        if ($result->num_rows == 1) {
+            $user = $result->fetch_assoc();
+            
+            // Verify the entered password against the stored password_hash
+            if (password_verify($form_password, $user['password_hash'])) {
+                
+                // Password is correct, store data in session
+                $_SESSION['user_id'] = $user['user_id'];
+                $_SESSION['full_name'] = $user['full_name'];
+                $_SESSION['role'] = $user['role'];
+                
+                // Redirect to the dashboard based on their role
+                // For now, redirecting to a generic dashboard
+                header("Location: DasbordCollegeAdmin.php"); 
+                exit();
+            } else {
+                $message = "Incorrect password. Please try again.";
+            }
+        } else {
+            $message = "No account found with this email address.";
+        }
+        $stmt->close();
+    } else {
+        $message = "Database query failed.";
+    }
+    $conn->close();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - PlacementPro</title>
-    <link href="LoginCollegeAdmin.css" rel="stylesheet">
     <style>
         .error-message {
             color: red;
@@ -136,19 +195,20 @@
             <div class="brand">PlacementPro</div>
             <p class="title">Login to your account</p>
 
-
+            <!-- Display Error Message if any -->
             <?php if (!empty($message)): ?>
                 <p class="error-message"><?php echo $message; ?></p>
             <?php endif; ?>
 
-
-            <form class="form" action="DB_LoginCollegeAdmin.php" method="POST">
-                <input type="text" name="e_id" class="input" placeholder="Employee ID" required>
+            <!-- Form Action is empty to submit to the same page -->
+            <form class="form" action="" method="POST">
+                
+                <!-- Changed from e_id to email to match your database column -->
+                <input type="email" name="email" class="input" placeholder="Email Address" required>
 
                 <input type="password" name="e_password" class="input" placeholder="Password" required>
 
                 <p class="page-link">
-
                     <a href="#" class="page-link-label">Forgot Password?</a>
                 </p>
 
@@ -157,5 +217,4 @@
         </div>
     </div>
 </body>
-
 </html>

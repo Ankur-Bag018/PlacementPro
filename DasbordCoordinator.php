@@ -128,7 +128,7 @@
         <div class="row justify-content-center g-4">
 
             <div class="col-12 col-sm-6 col-md-5">
-                <a href="JOB_JobPost.php" class="portal">
+                <a href="UplodeJobs.php" class="portal">
                     <h2>Post New Job</h2>
                     <span>Post Here</span>
                 </a>

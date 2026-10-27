@@ -125,33 +125,11 @@
         <div class="row g-4 justify-content-center">
 
             <div class="col-12 col-sm-6 col-lg-3">
-                <a class="portal" href="DB_DataEntryStudent.php">
-                    <h2>Student Data Entry</h2>
-                    <span>Enter Student Data</span>
+                <a class="portal" href="Create_users.php">
+                    <h2>Create User</h2>
+                    <span>Enter User Data</span>
                 </a>
             </div>
-
-            <div class="col-12 col-sm-6 col-lg-3">
-                <a class="portal" href="DB_DataEntryRecruter.php">
-                    <h2>Recruiter Data Entry</h2>
-                    <span>Enter Recruiter Data</span>
-                </a>
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-3">
-                <a class="portal" href="DB_DataEntryCoordinator.php">
-                    <h2>Coordinator Data Entry</h2>
-                    <span>Enter Coordinator Data</span>
-                </a>
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-3">
-                <a class="portal" href="DB_DataEntryCollegeAdmin.php">
-                    <h2>College Admin Data Entry</h2>
-                    <span>Enter College Admin Data</span>
-                </a>
-            </div>
-
         </div>
     </main>
 
