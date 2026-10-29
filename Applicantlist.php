@@ -2,12 +2,30 @@
 session_start();
 
 if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'Coordinator' && $_SESSION['role'] !== 'Recruiter')) {
-    echo "<script>alert('Access Denied!'); window.location.href='index.html';</script>";
+    echo "<script>alert('Access Denied!'); window.location.href='index.php';</script>";
     exit();
 }
 
 $conn = new mysqli('127.0.0.1', 'root', '', 'placementpro');
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+
+// ==========================================
+// ADDED LOGIC: Handle Job Deletion
+// ==========================================
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_job_id'])) {
+    $del_job_id = $_POST['delete_job_id'];
+    // Delete the job (Because of ON DELETE CASCADE in your DB, this also deletes its applications automatically)
+    $del_stmt = $conn->prepare("DELETE FROM jobs WHERE job_id = ?");
+    $del_stmt->bind_param("i", $del_job_id);
+    if ($del_stmt->execute()) {
+        echo "<script>alert('Job deleted successfully!'); window.location.href='Applicantlist.php';</script>";
+        exit();
+    } else {
+        echo "<script>alert('Error deleting job: " . $conn->error . "');</script>";
+    }
+    $del_stmt->close();
+}
+// ==========================================
 
 // Fetch Jobs and their Applicants
 $sql = "SELECT j.job_id, j.job_title, j.company_name, 
@@ -227,6 +245,24 @@ if ($result && $result->num_rows > 0) {
 
                         <div id="collapse<?php echo $counter; ?>" class="accordion-collapse collapse" data-bs-parent="#jobsAccordion">
                             <div class="accordion-body">
+
+                                <!-- ========================================== -->
+                                <!-- ADDED: EDIT AND DELETE JOB BUTTONS -->
+                                <!-- ========================================== -->
+                                <div class="d-flex justify-content-end gap-2 mb-3 pb-2 border-bottom">
+                                    <a href="EditJobs.php?job_id=<?php echo $job_id; ?>" class="btn btn-sm btn-warning fw-bold text-dark">
+                                        ✏️ Edit Job
+                                    </a>
+
+                                    <form method="POST" action="" class="m-0" onsubmit="return confirm('Are you sure you want to delete this job? All student applications for this job will also be permanently deleted.');">
+                                        <input type="hidden" name="delete_job_id" value="<?php echo $job_id; ?>">
+                                        <button type="submit" class="btn btn-sm btn-danger fw-bold">
+                                            🗑️ Delete Job
+                                        </button>
+                                    </form>
+                                </div>
+                                <!-- ========================================== -->
+
                                 <?php if ($applicant_count === 0): ?>
                                     <p class="text-center text-muted my-3">No students have applied yet.</p>
                                 <?php else: ?>
@@ -237,7 +273,6 @@ if ($result && $result->num_rows > 0) {
                                                     <th>Name & Email</th>
                                                     <th>Department (Year)</th>
                                                     <th>Resume</th>
-                                                    <!-- ADDED OPTION: FULL PROFILE COLUMN -->
                                                     <th>Full Profile</th>
                                                     <th>Update Status</th>
                                                 </tr>
@@ -255,7 +290,6 @@ if ($result && $result->num_rows > 0) {
                                                         </td>
                                                         <td><a href="<?php echo htmlspecialchars($app['resume_file']); ?>" target="_blank" class="resume-link">View</a></td>
 
-                                                        <!-- ADDED OPTION: VIEW DETAILS BUTTON -->
                                                         <td>
                                                             <a href="view_applicant.php?email=<?php echo urlencode($app['email']); ?>" target="_blank" class="btn btn-sm btn-info text-white fw-bold">View Details</a>
                                                         </td>

@@ -285,18 +285,18 @@
             </a>
             
             <!-- Recruiter Card -->
-            <a href="LoginRecruiter.php" class="portal-link">
+            <!-- <a href="LoginRecruiter.php" class="portal-link">
                 <div class="member" id="recruiter">
                     <label>Recruiter Portal</label>
                     <div class="form-btn">Login as Recruiter</div>
                 </div>
-            </a>
-             <!-- <a href="LoginCollegeAdmin.php" class="portal-link">
+            </a> -->
+             <a href="LoginCollegeAdmin.php" class="portal-link">
                 <div class="member" id="college-admin">
                     <label>College Management</label>
                     <div class="form-btn">Login as College Admin</div>
                 </div>
-            </a> -->
+            </a>
         </div>
     </main>
 
