@@ -6,7 +6,7 @@ $message = "";
 if (isset($_POST['login_btn'])) {
     
     // Database connection
-    $servername = "127.0.0.1";
+    $servername = "localhost"; 
     $username = "root";
     $password = "";
     $dbname = "placementpro"; 
@@ -44,7 +44,7 @@ if (isset($_POST['login_btn'])) {
                 
                 // Redirect to the dashboard based on their role
                 // For now, redirecting to a generic dashboard
-                header("Location: DasbordCollegeAdmin.php"); 
+                header("Location: DashboardCollegeAdmin.php"); 
                 exit();
             } else {
                 $message = "Incorrect password. Please try again.";

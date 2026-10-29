@@ -6,7 +6,7 @@ $message = "";
 if (isset($_POST['login_btn'])) {
     
     // Database connection details
-    $servername = "127.0.0.1";
+    $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "placementpro"; 
@@ -50,7 +50,7 @@ if (isset($_POST['login_btn'])) {
                 $_SESSION['role'] = $user['role'];
                 
                 // Redirect to the Coordinator dashboard
-                header("Location: DasbordCoordinator.php"); 
+                header("Location: DashboardCoordinator.php"); 
                 exit();
             } else {
                 $message = "Incorrect password. Please try again.";

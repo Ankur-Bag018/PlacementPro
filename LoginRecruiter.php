@@ -6,7 +6,7 @@ $message = "";
 if (isset($_POST['login_btn'])) {
     
     // Database connection details
-    $servername = "127.0.0.1";
+    $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "placementpro"; 
@@ -49,7 +49,7 @@ if (isset($_POST['login_btn'])) {
                 $_SESSION['role'] = $user['role'];
                 
                 // Redirect to the Recruiter dashboard
-                header("Location: DasbordRecruiter.php"); 
+                header("Location: DashboardRecruiter.php"); 
                 exit();
             } else {
                 $message = "Incorrect password. Please try again.";

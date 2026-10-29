@@ -135,9 +135,9 @@
             </div>
 
             <div class="col-12 col-sm-6 col-md-5">
-                <a href="JOB_PostedJobList.php" class="portal">
-                    <h2>Posted Jobs List</h2>
-                    <span>Show Jobs</span>
+                <a href="Applicantlist.php" class="portal">
+                    <h2>Jobs & Applicants List</h2>
+                    <span>Show Jobs & Applicants</span>
                 </a>
             </div>
 
