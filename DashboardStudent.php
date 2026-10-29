@@ -259,7 +259,7 @@ $jobs_result = $conn->query($jobs_query);
                     <li class="nav-item"><a class="nav-link active" href="DashboardStudent.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="ApplyStatus.php">Job Status</a></li>
                     <li class="nav-item"><a class="nav-link" href="StudentProfile.php">Profile</a></li>
-                    <li class="nav-item ms-lg-3"><a class="nav-link text-danger fw-bold" href="Logout.php">Logout</a></li>
+                    <li class="nav-item ms-lg-3"><a class="nav-link text-danger fw-bold" href="logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>

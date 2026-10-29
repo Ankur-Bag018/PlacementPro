@@ -310,7 +310,7 @@ $is_profile_complete = !empty($student['college_id']);
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="student_dashboard.php">
+            <a class="navbar-brand" href="DashboardStudent.php">
                 <img src="Logo.jpeg" alt="PlacementPro Logo" onerror="this.src='https://via.placeholder.com/200x70?text=PlacementPro'">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -318,10 +318,10 @@ $is_profile_complete = !empty($student['college_id']);
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="student_dashboard.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="job_status.php">Job Status</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="profile.php">Profile</a></li>
-                    <li class="nav-item ms-lg-3"><a class="nav-link text-danger fw-bold" href="Logout.php">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="DashboardStudent.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ApplyStatus.php">Job Status</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="StudentProfile.php">Profile</a></li>
+                    <li class="nav-item ms-lg-3"><a class="nav-link text-danger fw-bold" href="logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>

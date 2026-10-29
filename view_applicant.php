@@ -54,7 +54,7 @@ $profile_pic = !empty($student['passport_size_photo_file']) ? $student['passport
         .header-section {
             background: linear-gradient(135deg, #1e4b9e 0%, #4880e1 100%);
             color: white;
-            padding: 40px 0;
+            padding: 30px 0 40px 0;
             margin-bottom: 30px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
@@ -112,6 +112,11 @@ $profile_pic = !empty($student['passport_size_photo_file']) ? $student['passport
 <body>
 
     <div class="header-section">
+        <!-- ADDED: Back to Home Button -->
+        <div class="container mb-4">
+            <a href="DashboardCoordinator.php" class="btn btn-outline-light fw-bold">&larr; Back to Home</a>
+        </div>
+
         <div class="container d-flex align-items-center gap-4">
             <img src="<?php echo htmlspecialchars($profile_pic); ?>" alt="Profile Picture" class="profile-img">
             <div>
@@ -234,6 +239,8 @@ $profile_pic = !empty($student['passport_size_photo_file']) ? $student['passport
         </div>
     </div>
 
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
