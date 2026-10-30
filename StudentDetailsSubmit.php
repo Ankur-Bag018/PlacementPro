@@ -6,8 +6,8 @@ if (!isset($_SESSION['gmail_id'])) {
 }
 
 $host = "localhost";
-$user = "root"; 
-$pass = "";     
+$user = "root";
+$pass = "";
 $dbname = "placementpro";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
@@ -16,10 +16,10 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+
     // Get the email SECURELY from the session, not the form!
-    $gmail_id = $_SESSION['gmail_id']; 
-    
+    $gmail_id = $_SESSION['gmail_id'];
+
     $college_id = $_POST['college_id'];
     $roll_number = $_POST['roll_no'];
     $registration_number = $_POST['registration_no'];
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $semester = $_POST['semester'];
     $section = $_POST['section'];
     $active_backlog = $_POST['active_backlog'];
-    
+
     $sgpa_1 = !empty($_POST['sgpa_1']) ? $_POST['sgpa_1'] : NULL;
     $sgpa_2 = !empty($_POST['sgpa_2']) ? $_POST['sgpa_2'] : NULL;
     $sgpa_3 = !empty($_POST['sgpa_3']) ? $_POST['sgpa_3'] : NULL;
@@ -67,12 +67,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             )";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssssssiddddddddds", 
-        $college_id, $roll_number, $registration_number, $department, 
-        $academic_year, $semester, $gmail_id, $date_of_birth, $section, 
-        $active_backlog, $sgpa_1, $sgpa_2, $sgpa_3, 
-        $sgpa_4, $sgpa_5, $sgpa_6, $sgpa_7, 
-        $sgpa_8, $overall_cgpa, $resume_path
+    $stmt->bind_param(
+        "sssssssssiddddddddds",
+        $college_id,
+        $roll_number,
+        $registration_number,
+        $department,
+        $academic_year,
+        $semester,
+        $gmail_id,
+        $date_of_birth,
+        $section,
+        $active_backlog,
+        $sgpa_1,
+        $sgpa_2,
+        $sgpa_3,
+        $sgpa_4,
+        $sgpa_5,
+        $sgpa_6,
+        $sgpa_7,
+        $sgpa_8,
+        $overall_cgpa,
+        $resume_path
     );
 
     if ($stmt->execute()) {
@@ -87,35 +103,118 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>PlacementPro - Academic Details</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-        .form-container { background-color: #ffffff; width: 100%; max-width: 800px; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
-        h2 { text-align: center; color: #333; margin-bottom: 25px; }
-        form { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 20px; }
-        label { display: flex; flex-direction: column; font-weight: 600; color: #555; font-size: 14px; }
-        input, select { margin-top: 6px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; background-color: #fafafa; }
-        input:focus, select:focus { border-color: #007bff; outline: none; background-color: #fff; }
-        .full-width { grid-column: 1 / -1; }
-        .section-title { margin-top: 15px; margin-bottom: 5px; color: #007bff; border-bottom: 2px solid #f0f0f0; padding-bottom: 5px; font-size: 18px; }
-        .submit-btn { padding: 14px; background-color: #007bff; color: #ffffff; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 15px; grid-column: 1 / -1; }
-        @media (max-width: 600px) { form { grid-template-columns: 1fr; } }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 20px;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            font-weight: 600;
+            color: #555;
+            font-size: 14px;
+        }
+
+        input,
+        select {
+            margin-top: 6px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #fafafa;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #007bff;
+            outline: none;
+            background-color: #fff;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .section-title {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #007bff;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .submit-btn {
+            padding: 14px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="form-container">
         <h2>Student Academic Details</h2>
         <form action="" method="POST" enctype="multipart/form-data">
-            
+
             <label>College ID <input type="text" name="college_id" required></label>
             <label>Registration No <input type="text" name="registration_no" required></label>
             <label>Roll No <input type="text" name="roll_no" required></label>
-            
+
             <!-- Email field was removed here! We pull it directly from the session. -->
-            
+
             <label>Date of Birth <input type="date" name="dob" required></label>
             <label>Department
                 <select name="department" required>
@@ -138,9 +237,14 @@ $conn->close();
             <label>Semester
                 <select name="semester" required>
                     <option value="" disabled selected>Select Semester</option>
-                    <option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option>
-                    <option value="4">4th</option><option value="5">5th</option><option value="6">6th</option>
-                    <option value="7">7th</option><option value="8">8th</option>
+                    <option value="1">1st</option>
+                    <option value="2">2nd</option>
+                    <option value="3">3rd</option>
+                    <option value="4">4th</option>
+                    <option value="5">5th</option>
+                    <option value="6">6th</option>
+                    <option value="7">7th</option>
+                    <option value="8">8th</option>
                 </select>
             </label>
             <label>Section <input type="text" name="section"></label>
@@ -164,4 +268,5 @@ $conn->close();
         </form>
     </div>
 </body>
+
 </html>
