@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 // 1. Handle Dynamic "Update User" Form Submission
 // ==========================================
 if (isset($_POST['update_user'])) {
-    $u_id = $_POST['user_id_hidden'];
+    $u_id = $_POST['user_id_hidden']; 
     $updates = [];
     $types = "";
     $params = [];
@@ -27,7 +27,7 @@ if (isset($_POST['update_user'])) {
         // Ignore the submit button and hidden ID
         if ($key !== 'update_user' && $key !== 'user_id_hidden') {
             $updates[] = "`$key` = ?";
-            $types .= "s"; // Treat all as strings for safety
+            $types .= "s"; // Append string type for bind_param
             $params[] = trim($value);
         }
     }
@@ -35,12 +35,20 @@ if (isset($_POST['update_user'])) {
     if (!empty($updates)) {
         // Build the dynamic SQL query
         $update_sql = "UPDATE users SET " . implode(", ", $updates) . " WHERE user_id = ?";
-        $types .= "s";
-        $params[] = $u_id;
+        $types .= "s"; // Add the type for the ID at the end
+        $params[] = $u_id; 
 
         $stmt = $conn->prepare($update_sql);
         if ($stmt) {
-            $stmt->bind_param($types, ...$params);
+            // FIX: Create an array of references. This prevents VS Code errors 
+            // AND works across all PHP versions.
+            $bind_params = [];
+            foreach ($params as $key => $val) {
+                $bind_params[$key] = &$params[$key];
+            }
+            
+            // Use the spread operator to pass the references safely
+            $stmt->bind_param($types, ...$bind_params);
             $stmt->execute();
             $stmt->close();
         }
@@ -49,6 +57,7 @@ if (isset($_POST['update_user'])) {
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
 }
+
 
 // ==========================================
 // 2. Handle the "One-Click Delete" Action
@@ -70,7 +79,7 @@ if (isset($_GET['delete_id'])) {
 }
 
 // ==========================================
-// 3. Fetch specific user data if "Edit" is clicked (Fetches ALL columns dynamically)
+// 3. Fetch specific user data if "Edit" is clicked
 // ==========================================
 $edit_user_data = null;
 if (isset($_GET['edit_id'])) {
@@ -91,7 +100,7 @@ if (isset($_GET['edit_id'])) {
 }
 
 // ==========================================
-// 4. Fetch all users for the table (Fetches ALL columns dynamically)
+// 4. Fetch all users for the table
 // ==========================================
 $sql = "SELECT * FROM users";
 $result = $conn->query($sql);
@@ -288,7 +297,8 @@ $result = $conn->query($sql);
                                         echo "</tr>";
                                     }
                                 } else {
-                                    $col_count = count($fields) + 1;
+                                    // FIX: Check if $fields is set before counting to avoid VS Code Undefined Variable error
+                                    $col_count = isset($fields) ? count($fields) + 1 : 5;
                                     echo "<tr><td colspan='$col_count' class='text-center text-muted py-4'>No users found in the database.</td></tr>";
                                 }
                                 ?>
@@ -337,7 +347,7 @@ $result = $conn->query($sql);
                                         </select>
 
                                     <?php else: ?>
-                                        <!-- Dynamic text inputs for any other field in the database (name, email, phone, etc.) -->
+                                        <!-- Dynamic text inputs for any other field in the database -->
                                         <input type="text" name="<?php echo htmlspecialchars($column); ?>" class="form-control" value="<?php echo htmlspecialchars($value); ?>" required>
                                     <?php endif; ?>
                                 </div>
