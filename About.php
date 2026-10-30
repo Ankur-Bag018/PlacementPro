@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,22 +20,42 @@
             font-family: "Segoe UI", Tahoma, sans-serif;
         }
 
-        .navbar { box-shadow: 0 2px 10px #0000000d; }
-        .navbar-brand, .nav-link.active { color: var(--primary) !important; }
-        .navbar-brand { font-size: 28px; font-weight: bold; }
+        .navbar {
+            box-shadow: 0 2px 10px #0000000d;
+        }
+
+        .navbar-brand,
+        .nav-link.active {
+            color: var(--primary) !important;
+        }
+
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: bold;
+        }
 
         .hero {
             padding: 90px 20px;
             color: white;
             text-align: center;
             background: linear-gradient(#689ae6d9, #4a7abfe6),
-                url("https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg")
-                center/cover no-repeat;
+                url("https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg") center/cover no-repeat;
         }
 
-        .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: bold; }
-        .section { padding: 65px 0; }
-        .section-title { color: var(--dark); font-weight: bold; margin-bottom: 25px; }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 65px 0;
+        }
+
+        .section-title {
+            color: var(--dark);
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
 
         .feature-card {
             height: 100%;
@@ -47,21 +67,33 @@
             transition: .3s;
         }
 
-        .feature-card:hover { transform: translateY(-5px); }
-        .feature-card h4 { color: var(--dark); }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h4 {
+            color: var(--dark);
+        }
 
         .accordion-button:not(.collapsed) {
             color: var(--dark);
             background: #e9f2ff;
         }
 
-        .accordion-button:focus, .form-control:focus {
+        .accordion-button:focus,
+        .form-control:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 .2rem #689ae640;
         }
 
-        .btn-primary { background: var(--primary); border: 0; }
-        .btn-primary:hover { background: var(--dark); }
+        .btn-primary {
+            background: var(--primary);
+            border: 0;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark);
+        }
 
         .contact-box {
             height: 100%;
@@ -71,12 +103,24 @@
             border-radius: 10px;
         }
 
-        footer { padding: 35px 0 20px; background: #212529; color: white; }
-        footer a:hover { opacity: .7; }
+        footer {
+            padding: 35px 0 20px;
+            background: #212529;
+            color: white;
+        }
+
+        footer a:hover {
+            opacity: .7;
+        }
 
         @media (max-width: 576px) {
-            .section { padding: 45px 0; }
-            .hero { padding: 65px 15px; }
+            .section {
+                padding: 45px 0;
+            }
+
+            .hero {
+                padding: 65px 15px;
+            }
         }
     </style>
 </head>
@@ -106,7 +150,10 @@
     <header class="hero">
         <div class="container">
             <h1>About PlacementPro</h1>
-            <p class="lead mb-0">Bridging the gap between talented people and leading companies worldwide.</p>
+            <p class="lead mb-0"> A centralized, web-based platform bridging
+                students and the college placement cell with secure access
+                controls and dynamic tracking.(Its a bridge between Students and Placement cell)"</p>
+
         </div>
     </header>
 
@@ -213,10 +260,10 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-7">
-                    <h2 class="section-title">Get in Touch</h2>
-                    <p class="text-secondary">Have questions? Send us a message.</p>
+                    <!-- <h2 class="section-title">Get in Touch</h2>
+                    <p class="text-secondary">Have questions? Send us a message.</p> -->
 
-                    <form method="post" action="">
+                    <!-- <form method="post" action="">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label for="name" class="form-label">Full Name</label>
@@ -244,20 +291,20 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
 
                 <div class="col-lg-5">
                     <div class="contact-box">
                         <h4 class="mb-4">Contact Information</h4>
                         <h6>Office Address</h6>
-                        <p>123 Tech Boulevard, Suite 400<br>San Francisco, CA 94107</p>
+                        <p>Em-4, Em4/1, EM Block, Sector V<br>Bidhannagar, Kolkata, West Bengal 700091</p>
 
                         <h6>Email Us</h6>
                         <p>support@placementpro.com<br>careers@placementpro.com</p>
 
                         <h6>Call Us</h6>
-                        <p class="mb-0">+1 (800) 123-4567<br>Mon–Fri, 9 AM–6 PM EST</p>
+                        <p class="mb-0">+91 33 1234 5678<br>Mon–Fri, 9 AM–6 PM IST</p>
                     </div>
                 </div>
             </div>
@@ -268,7 +315,7 @@
     <footer class="text-center">
         <div class="container">
             <h4>PlacementPro</h4>
-            <p class="text-secondary">Connecting talent with opportunities worldwide.</p>
+            <p class="text-secondary">Connecting talent with opportunities .</p>
             <div class="mb-4">
                 <a href="index.php" class="text-white text-decoration-none mx-2">Home</a> |
                 <a href="About.php" class="text-white text-decoration-none mx-2">About</a> |
@@ -281,4 +328,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
