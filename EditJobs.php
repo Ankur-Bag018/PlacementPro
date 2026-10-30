@@ -15,7 +15,7 @@ if (!isset($_GET['job_id']) && !isset($_POST['job_id'])) {
 
 $job_id = isset($_GET['job_id']) ? intval($_GET['job_id']) : intval($_POST['job_id']);
 
-$conn = new mysqli('127.0.0.1', 'root', '', 'placementpro');
+$conn = new mysqli('localhost', 'root', '', 'placementpro');
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
 $message = "";
