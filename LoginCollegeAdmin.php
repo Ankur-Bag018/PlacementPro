@@ -43,9 +43,21 @@ if (isset($_POST['login_btn'])) {
                 $_SESSION['role'] = $user['role'];
                 
                 // Redirect to the dashboard based on their role
-                // For now, redirecting to a generic dashboard
-                header("Location: DashboardCollegeAdmin.php"); 
-                exit();
+                $role = strtolower($user['role']); // Convert to lowercase to avoid case-sensitivity issues
+
+                if ($role === 'admin' || $role === 'college_admin') {
+                    header("Location: DashboardCollegeAdmin.php");
+                    exit();
+                } elseif ($role === 'coordinator') {
+                    header("Location: DashboardCoordinator.php"); // Create this file if it doesn't exist
+                    exit();
+                } elseif ($role === 'student') {
+                    header("Location: DashboardStudent.php"); // Create this file if it doesn't exist
+                    exit();
+                } else {
+                    $message = "Error: User role is not recognized.";
+                }
+
             } else {
                 $message = "Incorrect password. Please try again.";
             }

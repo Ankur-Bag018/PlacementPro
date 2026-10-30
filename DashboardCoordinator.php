@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +25,10 @@
             font-size: 28px;
             font-weight: 800;
             letter-spacing: 1px;
+        }
+
+        .nav-link {
+            font-weight: 500;
         }
 
         .nav-link:hover { color: var(--primary) !important; }
@@ -110,6 +113,12 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <!-- Added Back to Index Link Here -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">
+                            &larr; Back
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="About.php">About</a>
                     </li>
