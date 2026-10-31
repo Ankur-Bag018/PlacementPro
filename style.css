@@ -1,0 +1,307 @@
+/* =========================================
+   Global & Common Styles
+   ========================================= */
+:root {
+    --primary: #4880e1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fbfdff;
+    font-family: "Segoe UI", sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* =========================================
+   Navbar Enhancements
+   ========================================= */
+.navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
+    margin: 0px;
+}
+
+.navbar-brand {
+    color: var(--primary) !important;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+/* Specific adjustment for index.php logo to maintain existing spacing */
+.navbar-brand:has(img) {
+    margin-left: -70px;
+}
+
+.navbar-brand img {
+    height: 70px;
+    width: 200px;
+    object-fit: contain;
+    margin: 0;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: #333 !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary) !important;
+}
+
+/* =========================================
+   Hero / Introduction Section 
+   (Combines .introduction and .hero)
+   ========================================= */
+.introduction, .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://media.istockphoto.com/id/2170561826/photo/modern-office-building-by-night-in-paris-france.jpg?b=1&s=612x612&w=0&k=20&c=Udc6TIgsUcIQsgAv8FLdXZIdS_hAjRqHMBvuJXcXyFI=");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.introduction {
+    height: 50vh;
+    background-attachment: fixed;
+}
+
+.hero {
+    padding: 40px 15px;
+}
+
+.introduction h1, .hero h1 {
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+}
+
+.introduction h1 {
+    font-size: 3rem;
+    padding: 20px 40px;
+}
+
+.hero h1 {
+    margin: 0;
+    padding: 20px 30px;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+/* =========================================
+   Main Content Layout
+   ========================================= */
+main {
+    flex-grow: 1;
+    padding: 60px 20px 20px;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   Role Cards & Portals (.member / .portal)
+   ========================================= */
+.portal-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.member, .portal {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--primary);
+    box-sizing: border-box;
+}
+
+.member {
+    padding: 40px 30px;
+    width: 100%;
+    min-width: 280px;
+    max-width: 320px;
+}
+
+.portal {
+    display: block;
+    height: 100%;
+    padding: 35px 25px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.portal-link:hover .member, .portal:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(72, 128, 225, 0.15);
+}
+
+.member label {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    display: block;
+    cursor: pointer;
+}
+
+.portal h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* Button & Span Styling inside Portals */
+.form-btn, .portal span {
+    color: white;
+    background-color: var(--primary);
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.form-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.portal span {
+    display: block;
+    padding: 12px;
+}
+
+.portal-link:hover .form-btn, .portal:hover span {
+    background-color: #3566b8;
+}
+
+.portal-link:active .form-btn {
+    transform: scale(0.98);
+}
+
+.portal:focus-visible {
+    outline: 3px solid #244d96;
+    outline-offset: 4px;
+}
+
+/* =========================================
+   Recruiter Companies Section (index.php)
+   ========================================= */
+.companies-section {
+    padding: 40px 20px 60px;
+    text-align: center;
+}
+
+.companies-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.companies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.recruitercompany {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    color: #5a6a7c;
+    border: 1px solid #dcdfe3;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+    cursor: default;
+    user-select: none;
+}
+
+.recruitercompany img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.recruitercompany:hover {
+    background-color: #f0f5fc;
+    color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(72, 128, 225, 0.15);
+}
+
+/* =========================================
+   Admin Table Styling 
+   ========================================= */
+.table-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid var(--primary);
+    padding: 25px;
+    margin-top: 20px;
+}
+
+.table-title {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   Responsive Adjustments
+   ========================================= */
+@media (max-width: 768px) {
+    .introduction h1 {
+        font-size: 2rem;
+        padding: 15px 25px;
+    }
+    .member {
+        padding: 30px 20px;
+    }
+    .recruitercompany {
+        font-size: 13px;
+        padding: 8px 16px;
+    }
+    .recruitercompany img {
+        width: 20px;
+        height: 20px;
+    }
+}

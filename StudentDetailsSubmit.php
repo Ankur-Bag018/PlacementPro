@@ -5,12 +5,7 @@ if (!isset($_SESSION['gmail_id'])) {
     exit();
 }
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "placementpro";
-
-$conn = new mysqli($host, $user, $pass, $dbname);
+$conn = new mysqli("localhost", "root", "", "placementpro");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

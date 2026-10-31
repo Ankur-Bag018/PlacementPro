@@ -10,12 +10,7 @@ if (!isset($_SESSION['gmail_id'])) {
 $student_email = $_SESSION['gmail_id'];
 
 // Database connection
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$db   = 'placementpro';
-
-$conn = new mysqli($host, $user, $pass, $db);
+$conn = new mysqli("localhost", "root", "", "placementpro");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -351,18 +346,6 @@ $is_profile_complete = !empty($student['college_id']);
                     <!-- PERMANENT EDIT DETAILS BUTTON -->
                     <a href="EditDetails.php" class="btn-edit">✏️ Edit Details</a>
                 </div>
-
-                <!-- COMPLETE PROFILE WARNING (Only shows if profile is incomplete) -->
-                <!-- 
-                    <div class="profile-card action-card">
-                        <h4 class="action-title">⚠️ Complete Your Profile</h4>
-                        <p class="action-text">You need to complete your academic profile and upload required documents before applying to jobs.</p>
-
-                        <div class="d-grid gap-2">
-                            <a href="EditDetails.php" class="btn btn-warning fw-bold text-dark">1. Fill Academic Details</a>
-                            <a href="index.html" class="btn btn-outline-dark fw-bold">2. Upload Documents</a>
-                        </div>
-                    </div> -->
 
             </div>
 

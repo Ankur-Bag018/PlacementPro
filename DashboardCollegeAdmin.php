@@ -2,12 +2,7 @@
 session_start();
 
 // Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "placementpro";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost", "root", "", "placementpro");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -113,108 +108,10 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PlacementPro - Admin Dashboard</title>
+    <!-- Bootstrap 5.3 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary: #4880e1;
-        }
-
-        body {
-            margin: 0;
-            background: #fbfdff;
-            font-family: "Segoe UI", sans-serif;
-        }
-
-        .navbar {
-            background: white;
-            box-shadow: 0 4px 6px #0000000d;
-        }
-
-        .navbar-brand {
-            color: var(--primary);
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-        }
-
-        .hero {
-            min-height: 400px;
-            display: grid;
-            place-items: center;
-            padding: 40px 15px;
-            background: linear-gradient(#0006, #0006),
-                url("https://media.istockphoto.com/id/2170561826/photo/modern-office-building-by-night-in-paris-france.jpg?b=1&s=612x612&w=0&k=20&c=Udc6TIgsUcIQsgAv8FLdXZIdS_hAjRqHMBvuJXcXyFI=") center/cover no-repeat;
-        }
-
-        .hero h1 {
-            padding: 20px 30px;
-            background: #fffffff2;
-            color: #333;
-            border-radius: 12px;
-            text-align: center;
-            font-size: clamp(1.8rem, 5vw, 3rem);
-            font-weight: 700;
-            box-shadow: 0 10px 30px #0003;
-        }
-
-        .portal {
-            display: block;
-            height: 100%;
-            padding: 30px 20px;
-            color: inherit;
-            text-align: center;
-            text-decoration: none;
-            background: white;
-            border-top: 5px solid var(--primary);
-            border-radius: 16px;
-            box-shadow: 0 8px 20px #00000014;
-            transition: .3s;
-        }
-
-        .portal:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 15px 30px #4880e126;
-        }
-
-        .portal h2 {
-            font-size: 21px;
-            font-weight: 600;
-            margin-bottom: 22px;
-        }
-
-        .portal span {
-            display: block;
-            padding: 12px;
-            color: white;
-            background: var(--primary);
-            border-radius: 8px;
-            font-weight: 600;
-        }
-
-        .portal:hover span {
-            background: #3566b8;
-        }
-
-        .table-container {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px #00000014;
-            border-top: 5px solid var(--primary);
-            padding: 25px;
-            margin-top: 20px;
-        }
-
-        .table-title {
-            color: #2c3e50;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-    </style>
+    <!-- Connected Common CSS -->
+    <link href="style.css" rel="stylesheet">
 </head>
 
 <body>

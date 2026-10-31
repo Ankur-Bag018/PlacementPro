@@ -1,12 +1,7 @@
 <?php
-// Database connection details
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "placementpro"; 
-
+// Database connection
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost", "root", "", "placementpro");
 
 // Check connection
 if ($conn->connect_error) {

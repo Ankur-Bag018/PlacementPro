@@ -18,12 +18,8 @@ if (!isset($_POST['job_id']) || empty($_POST['job_id'])) {
 $job_id = $_POST['job_id'];
 
 // Database connection
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$db   = 'placementpro';
 
-$conn = new mysqli($host, $user, $pass, $db);
+$conn = new mysqli("localhost", "root", "", "placementpro");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

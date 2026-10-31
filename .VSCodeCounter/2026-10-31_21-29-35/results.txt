@@ -1,0 +1,48 @@
+Date : 2026-10-31 21:29:35
+Directory : c:\xampp\htdocs\PlacementPro
+Total : 22 files,  4001 codes, 176 comments, 634 blanks, all 4811 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| PHP      |         20 |      3,694 |        149 |        587 |      4,430 |
+| PostCSS  |          1 |        243 |         27 |         37 |        307 |
+| Markdown |          1 |         64 |          0 |         10 |         74 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                   | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                      |         22 |      4,001 |        176 |        634 |      4,811 |
++--------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                               | language | code       | comment    | blank      | total      |
++--------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\xampp\htdocs\PlacementPro\About.php                 | PHP      |        292 |          0 |         40 |        332 |
+| c:\xampp\htdocs\PlacementPro\Applicantlist.php         | PHP      |        320 |          6 |         42 |        368 |
+| c:\xampp\htdocs\PlacementPro\ApplyStatus.php           | PHP      |        185 |          9 |         25 |        219 |
+| c:\xampp\htdocs\PlacementPro\Applyjob.php              | PHP      |        133 |          6 |         19 |        158 |
+| c:\xampp\htdocs\PlacementPro\CompleteProfile.php       | PHP      |         66 |          4 |          4 |         74 |
+| c:\xampp\htdocs\PlacementPro\Create_users.php          | PHP      |        141 |         14 |         31 |        186 |
+| c:\xampp\htdocs\PlacementPro\DashboardCollegeAdmin.php | PHP      |        212 |         25 |         38 |        275 |
+| c:\xampp\htdocs\PlacementPro\DashboardCoordinator.php  | PHP      |         61 |          0 |          9 |         70 |
+| c:\xampp\htdocs\PlacementPro\DashboardStudent.php      | PHP      |        269 |         16 |         42 |        327 |
+| c:\xampp\htdocs\PlacementPro\EditDetails.php           | PHP      |        386 |         13 |         58 |        457 |
+| c:\xampp\htdocs\PlacementPro\EditJobs.php              | PHP      |        216 |          5 |         45 |        266 |
+| c:\xampp\htdocs\PlacementPro\LoginCollegeAdmin.php     | PHP      |        173 |         15 |         27 |        215 |
+| c:\xampp\htdocs\PlacementPro\README.md                 | Markdown |         64 |          0 |         10 |         74 |
+| c:\xampp\htdocs\PlacementPro\StudentDetailsSubmit.php  | PHP      |        234 |          1 |         32 |        267 |
+| c:\xampp\htdocs\PlacementPro\StudentDocumentSubmit.php | PHP      |        161 |          3 |         34 |        198 |
+| c:\xampp\htdocs\PlacementPro\StudentProfile.php        | PHP      |        359 |          8 |         60 |        427 |
+| c:\xampp\htdocs\PlacementPro\UplodeJobs.php            | PHP      |        130 |         14 |         32 |        176 |
+| c:\xampp\htdocs\PlacementPro\index.php                 | PHP      |         99 |          0 |          8 |        107 |
+| c:\xampp\htdocs\PlacementPro\logout.php                | PHP      |         14 |          6 |          4 |         24 |
+| c:\xampp\htdocs\PlacementPro\style.css                 | PostCSS  |        243 |         27 |         37 |        307 |
+| c:\xampp\htdocs\PlacementPro\update_status.php         | PHP      |         29 |          1 |          8 |         38 |
+| c:\xampp\htdocs\PlacementPro\view_applicant.php        | PHP      |        214 |          3 |         29 |        246 |
+| Total                                                  |          |      4,001 |        176 |        634 |      4,811 |
++--------------------------------------------------------+----------+------------+------------+------------+------------+

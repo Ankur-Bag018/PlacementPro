@@ -10,12 +10,7 @@ if (!isset($_SESSION['gmail_id'])) {
 $student_email = $_SESSION['gmail_id'];
 
 // Database connection
-$host = '127.0.0.1';
-$user = 'root';
-$pass = '';
-$db   = 'placementpro';
-
-$conn = new mysqli($host, $user, $pass, $db);
+$conn = new mysqli("localhost", "root", "", "placementpro");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

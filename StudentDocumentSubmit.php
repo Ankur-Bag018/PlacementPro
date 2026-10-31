@@ -5,12 +5,7 @@ if (!isset($_SESSION['gmail_id'])) {
     exit();
 }
 
-$host = 'localhost';
-$db   = 'placementpro';
-$user = 'root';
-$pass = '';
-
-$conn = new mysqli($host, $user, $pass, $db);
+$conn = new mysqli("localhost", "root", "", "placementpro");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -168,31 +163,31 @@ $conn->close();
         <!-- Form action changed to empty string so it submits to this exact file -->
         <form action="" method="POST" enctype="multipart/form-data">
 
-            <label>University Registration Card</label>
-            <input type="file" name="reg_card" accept=".pdf, .jpg, .jpeg" required>
+            <label>University Registration Card</label><p style="font-size: 12px; color: #555;">(Max size: 2MB, Formats: PDF)</p>
+            <input type="file" name="reg_card" accept=".pdf" required>
 
-            <label>All Semester Results</label>
-            <input type="file" name="sem_results" accept=".pdf, .jpg, .jpeg" required>
+            <label>All Semester Results</label><p style="font-size: 12px; color: #555;">(Max size: 2MB, Formats: PDF)</p>
+            <input type="file" name="sem_results" accept=".pdf" required>
 
-            <label>Aadhar Card</label>
-            <input type="file" name="aadhar_card" accept=".pdf, .jpg, .jpeg" required>
+            <label>Aadhar Card</label><p style="font-size: 12px; color: #555;">(Max size: 2MB, Formats: PDF)</p>
+            <input type="file" name="aadhar_card" accept=".pdf" required>
 
-            <label>College Id Card</label>
-            <input type="file" name="college_id" accept=".pdf, .jpg, .jpeg" required>
+            <label>College Id Card</label><p style="font-size: 12px; color: #555;">(Max size: 2MB, Formats: PDF)</p>
+            <input type="file" name="college_id" accept=".pdf" required>
 
-            <label>10th Marks Sheet</label>
-            <input type="file" name="marksheet_10" accept=".pdf, .jpg, .jpeg" required>
+            <label>10th Marks Sheet</label><p style="font-size: 12px; color: #555;">(Max size: 2MB, Formats: PDF)</p>
+            <input type="file" name="marksheet_10" accept=".pdf" required>
 
-            <label>12th Marks Sheet</label>
-            <input type="file" name="marksheet_12" accept=".pdf, .jpg, .jpeg" required>
+            <label>12th Marks Sheet</label><p style="font-size: 12px; color: #555;">(Max size: 2MB, Formats: PDF)</p>
+            <input type="file" name="marksheet_12" accept=".pdf" required>
 
-            <label>10th Admit Card</label>
-            <input type="file" name="admit_10" accept=".pdf, .jpg, .jpeg" required>
+            <label>10th Admit Card</label><p style="font-size: 12px; color: #555;">(Max size: 2MB, Formats: PDF)</p>
+            <input type="file" name="admit_10" accept=".pdf" required>
 
-            <label>12th Admit Card</label>
-            <input type="file" name="admit_12" accept=".pdf, .jpg, .jpeg" required>
+            <label>12th Admit Card</label><p style="font-size: 12px; color: #555;">(Max size: 2MB, Formats: PDF)</p>
+            <input type="file" name="admit_12" accept=".pdf" required>
 
-            <label>Passport Size Photo</label>
+            <label>Passport Size Photo</label><p style="font-size: 12px; color: #555;">(Max size: 2MB, Formats: PDF/JPG/JPEG)</p>
             <input type="file" name="passport_photo" accept=".pdf, .jpg, .jpeg" required>
 
             <button type="submit" class="submit-btn">Upload Documents</button>

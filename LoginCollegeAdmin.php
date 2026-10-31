@@ -1,17 +1,10 @@
 <?php
-session_start(); // Start the session to store user login state
+session_start();
 $message = "";
 
-// Check if the form was submitted
 if (isset($_POST['login_btn'])) {
-    
     // Database connection
-    $servername = "localhost"; 
-    $username = "root";
-    $password = "";
-    $dbname = "placementpro"; 
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli("localhost", "root", "", "placementpro");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -19,12 +12,12 @@ if (isset($_POST['login_btn'])) {
 
     // Retrieve form data
     $email = trim($_POST['email']);
-    $form_password = trim($_POST['e_password']);
+    $form_password = trim($_POST['password']);
 
     // Prepare SQL to fetch the user by email
     $sql = "SELECT user_id, full_name, password_hash, role FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
-    
+
     if ($stmt) {
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -33,26 +26,41 @@ if (isset($_POST['login_btn'])) {
         // Check if the user exists
         if ($result->num_rows == 1) {
             $user = $result->fetch_assoc();
-            
+
             // Verify the entered password against the stored password_hash
             if (password_verify($form_password, $user['password_hash'])) {
                 
-                // Password is correct, store data in session
+                // Password is correct, store common data in session
                 $_SESSION['user_id'] = $user['user_id'];
                 $_SESSION['full_name'] = $user['full_name'];
                 $_SESSION['role'] = $user['role'];
-                
-                // Redirect to the dashboard based on their role
-                $role = strtolower($user['role']); // Convert to lowercase to avoid case-sensitivity issues
+                $_SESSION['gmail_id'] = $email;
+
+                // Redirect based on role
+                $role = strtolower($user['role']);
 
                 if ($role === 'admin' || $role === 'college_admin') {
                     header("Location: DashboardCollegeAdmin.php");
                     exit();
                 } elseif ($role === 'coordinator') {
-                    header("Location: DashboardCoordinator.php"); // Create this file if it doesn't exist
+                    header("Location: DashboardCoordinator.php");
                     exit();
                 } elseif ($role === 'student') {
-                    header("Location: DashboardStudent.php"); // Create this file if it doesn't exist
+                    // Specific logic for Students: Check if profile is complete
+                    $check_profile_sql = "SELECT id FROM student_details WHERE gmail_id = ?";
+                    $check_stmt = $conn->prepare($check_profile_sql);
+                    $check_stmt->bind_param("s", $email);
+                    $check_stmt->execute();
+                    $profile_result = $check_stmt->get_result();
+
+                    if ($profile_result->num_rows > 0) {
+                        // Profile is complete, go to Dashboard
+                        header("Location: DashboardStudent.php");
+                    } else {
+                        // Profile is NOT complete, go to Complete Profile page
+                        header("Location: CompleteProfile.php");
+                    }
+                    $check_stmt->close();
                     exit();
                 } else {
                     $message = "Error: User role is not recognized.";
@@ -82,9 +90,11 @@ if (isset($_POST['login_btn'])) {
         .error-message {
             color: red;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: bold;
+            font-size: 14px;
         }
+
         body {
             margin: 0;
             padding: 20px;
@@ -156,26 +166,6 @@ if (isset($_POST['login_btn'])) {
             box-shadow: 0 0 0 3px rgba(72, 128, 225, 0.2);
         }
 
-        /* Forgot Password Link */
-        .page-link {
-            text-align: right;
-            margin: -5px 0 5px 0;
-        }
-
-        .page-link-label {
-            font-size: 13px;
-            color: #4880e1;
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .page-link-label:hover {
-            color: #3566b8;
-            text-decoration: underline;
-        }
-
         /* Login Button */
         .form-btn {
             background-color: #4880e1;
@@ -188,6 +178,7 @@ if (isset($_POST['login_btn'])) {
             width: 100%;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.1s ease;
+            margin-top: 5px;
         }
 
         .form-btn:hover {
@@ -214,16 +205,8 @@ if (isset($_POST['login_btn'])) {
 
             <!-- Form Action is empty to submit to the same page -->
             <form class="form" action="" method="POST">
-                
-                <!-- Changed from e_id to email to match your database column -->
                 <input type="email" name="email" class="input" placeholder="Email Address" required>
-
-                <input type="password" name="e_password" class="input" placeholder="Password" required>
-
-                <p class="page-link">
-                    <a href="#" class="page-link-label">Forgot Password?</a>
-                </p>
-
+                <input type="password" name="password" class="input" placeholder="Password" required>
                 <button type="submit" name="login_btn" class="form-btn">Log in</button>
             </form>
         </div>
