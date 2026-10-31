@@ -1,10 +1,10 @@
 # Details
 
-Date : 2026-10-31 21:29:35
+Date : 2026-10-31 22:04:12
 
 Directory c:\\xampp\\htdocs\\PlacementPro
 
-Total : 22 files,  4001 codes, 176 comments, 634 blanks, all 4811 lines
+Total : 22 files,  4019 codes, 176 comments, 634 blanks, all 4829 lines
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
@@ -15,7 +15,7 @@ Total : 22 files,  4001 codes, 176 comments, 634 blanks, all 4811 lines
 | [Applicantlist.php](/Applicantlist.php) | PHP | 320 | 6 | 42 | 368 |
 | [ApplyStatus.php](/ApplyStatus.php) | PHP | 185 | 9 | 25 | 219 |
 | [Applyjob.php](/Applyjob.php) | PHP | 133 | 6 | 19 | 158 |
-| [CompleteProfile.php](/CompleteProfile.php) | PHP | 66 | 4 | 4 | 74 |
+| [CompleteProfile.php](/CompleteProfile.php) | PHP | 84 | 4 | 4 | 92 |
 | [Create\_users.php](/Create_users.php) | PHP | 141 | 14 | 31 | 186 |
 | [DashboardCollegeAdmin.php](/DashboardCollegeAdmin.php) | PHP | 212 | 25 | 38 | 275 |
 | [DashboardCoordinator.php](/DashboardCoordinator.php) | PHP | 61 | 0 | 9 | 70 |

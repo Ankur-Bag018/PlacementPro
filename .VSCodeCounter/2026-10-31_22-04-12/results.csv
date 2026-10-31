@@ -3,7 +3,7 @@
 "c:\xampp\htdocs\PlacementPro\Applicantlist.php", "PHP", 320, 0, 0, 6, 42, 368
 "c:\xampp\htdocs\PlacementPro\ApplyStatus.php", "PHP", 185, 0, 0, 9, 25, 219
 "c:\xampp\htdocs\PlacementPro\Applyjob.php", "PHP", 133, 0, 0, 6, 19, 158
-"c:\xampp\htdocs\PlacementPro\CompleteProfile.php", "PHP", 66, 0, 0, 4, 4, 74
+"c:\xampp\htdocs\PlacementPro\CompleteProfile.php", "PHP", 84, 0, 0, 4, 4, 92
 "c:\xampp\htdocs\PlacementPro\Create_users.php", "PHP", 141, 0, 0, 14, 31, 186
 "c:\xampp\htdocs\PlacementPro\DashboardCollegeAdmin.php", "PHP", 212, 0, 0, 25, 38, 275
 "c:\xampp\htdocs\PlacementPro\DashboardCoordinator.php", "PHP", 61, 0, 0, 0, 9, 70
@@ -21,4 +21,4 @@
 "c:\xampp\htdocs\PlacementPro\style.css", "PostCSS", 0, 0, 243, 27, 37, 307
 "c:\xampp\htdocs\PlacementPro\update_status.php", "PHP", 29, 0, 0, 1, 8, 38
 "c:\xampp\htdocs\PlacementPro\view_applicant.php", "PHP", 214, 0, 0, 3, 29, 246
-"Total", "-", 3694, 64, 243, 176, 634, 4811
+"Total", "-", 3712, 64, 243, 176, 634, 4829
