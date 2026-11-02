@@ -5,7 +5,7 @@ session_start();
 // (Assuming you save the user's email in $_SESSION['gmail_id'] when they log in)
 if (!isset($_SESSION['gmail_id'])) {
     // If not logged in, send them back to login page
-    header("Location: LoginStudent.php");
+    header("Location: Login.php");
     exit();
 }
 

@@ -42,7 +42,7 @@
     <main>
         <div class="main">
             <!-- College-->
-            <a href="LoginCollegeAdmin.php" class="portal-link">
+            <a href="Login.php" class="portal-link">
                 <div class="member" id="college-admin">
                     <label></label>
                     <div class="form-btn">Login</div>

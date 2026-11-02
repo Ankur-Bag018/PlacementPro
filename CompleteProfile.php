@@ -2,7 +2,7 @@
 session_start();
 // Protect the page
 if (!isset($_SESSION['gmail_id'])) {
-    header("Location: LoginStudent.php");
+    header("Location: Login.php");
     exit();
 }
 

@@ -3,7 +3,7 @@ session_start();
 
 // 1. Ensure the student is logged in
 if (!isset($_SESSION['gmail_id'])) {
-    header("Location: LoginStudent.php");
+    header("Location: Login.php");
     exit();
 }
 
