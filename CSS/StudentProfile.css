@@ -1,0 +1,204 @@
+ body {
+            margin: 0;
+            padding: 0;
+            background-color: #fbfdff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background-color: #ffffff !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 15px 20px;
+        }
+
+        .navbar-brand {
+            color: #4880e1 !important;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            margin-left: -70px;
+        }
+
+        .navbar-brand img {
+            height: 70px;
+            width: 200px;
+            object-fit: contain;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: #333 !important;
+            transition: color 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #4880e1 !important;
+        }
+
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 15vh;
+            background: linear-gradient(135deg, #4880e1 0%, #1e4b9e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-top: 5px solid #4880e1;
+        }
+
+        .profile-sidebar {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid #eef2fb;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .student-email {
+            color: #5a6a7c;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* PERMANENT Edit Button */
+        .btn-edit {
+            background-color: #f8faff;
+            color: #4880e1;
+            border: 1px solid #4880e1;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 6px;
+            width: 100%;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .btn-edit:hover {
+            background-color: #4880e1;
+            color: white;
+        }
+
+        /* Action Card for Incomplete Profile */
+        .action-card {
+            border-top: 5px solid #ffc107 !important;
+            background-color: #fffcf2 !important;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .action-title {
+            color: #856404;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .action-text {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #4880e1;
+            border-bottom: 2px solid #eef2fb;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            color: #718096;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-value {
+            font-size: 15px;
+            color: #2d3748;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .resume-box {
+            background-color: #f8faff;
+            border: 1px dashed #4880e1;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .btn-view-resume {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .btn-view-resume:hover {
+            background-color: #218838;
+            color: white;
+        }
+
+        .btn-upload {
+            background-color: #4880e1;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-upload:hover {
+            background-color: #3566b8;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                margin-left: 0;
+            }
+        }

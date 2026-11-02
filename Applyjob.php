@@ -84,16 +84,8 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Status - PlacementPro</title>
+    <link href="CSS/Applyjob.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fbfdff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
         .status-card {
             background: white;
             padding: 40px;
@@ -103,35 +95,6 @@ $conn->close();
             max-width: 450px;
             width: 90%;
             border-top: 6px solid <?php echo $status === 'success' ? '#28a745' : '#dc3545'; ?>;
-        }
-        .icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-        .title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        .message {
-            font-size: 16px;
-            color: #5a6a7c;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #4880e1;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        .btn:hover {
-            background-color: #3566b8;
         }
     </style>
 </head>

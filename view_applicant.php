@@ -44,69 +44,7 @@ $profile_pic = !empty($student['passport_size_photo_file']) ? $student['passport
     <meta charset="UTF-8">
     <title>Applicant Profile - <?php echo htmlspecialchars($student['full_name']); ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f4f7f6;
-            font-family: 'Segoe UI', sans-serif;
-            padding-bottom: 50px;
-        }
-
-        .header-section {
-            background: linear-gradient(135deg, #1e4b9e 0%, #4880e1 100%);
-            color: white;
-            padding: 30px 0 40px 0;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .card {
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 25px;
-        }
-
-        .card-header {
-            background-color: white;
-            border-bottom: 2px solid #eef2fb;
-            font-weight: 700;
-            color: #4880e1;
-            font-size: 18px;
-            padding: 15px 20px;
-            border-radius: 12px 12px 0 0 !important;
-        }
-
-        .detail-label {
-            font-size: 12px;
-            color: #718096;
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-bottom: 3px;
-        }
-
-        .detail-value {
-            font-size: 15px;
-            color: #2d3748;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .doc-btn {
-            width: 100%;
-            text-align: left;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-    </style>
+    <link href="CSS/view_applicant.css" rel="stylesheet">
 </head>
 
 <body>

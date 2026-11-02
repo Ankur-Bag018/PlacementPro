@@ -1,0 +1,186 @@
+body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #fbfdff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #ffffff !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 15px 20px;
+        }
+
+        .navbar-brand {
+            color: #4880e1 !important;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            margin-left: -70px;
+        }
+
+        .navbar-brand img {
+            height: 70px;
+            width: 200px;
+            object-fit: contain;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: #333 !important;
+            transition: color 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #4880e1 !important;
+        }
+
+        /* Dashboard Header */
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 25vh;
+            min-height: 200px;
+            background: linear-gradient(135deg, #4880e1 0%, #1e4b9e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .dashboard-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Job Cards Grid */
+        main {
+            flex-grow: 1;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 40px;
+            font-size: 28px;
+        }
+
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Job Card Styling */
+        .job-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #4880e1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .job-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(72, 128, 225, 0.15);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .job-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .company-name {
+            font-size: 15px;
+            color: #4880e1;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .job-badge {
+            background-color: #eef2fb;
+            color: #4880e1;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .job-details {
+            margin-bottom: 25px;
+            color: #5a6a7c;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .job-details span {
+            display: block;
+        }
+
+        .job-details strong {
+            color: #333;
+        }
+
+        /* Apply Button */
+        .apply-btn {
+            background-color: #4880e1;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            width: 100%;
+            border: none;
+            transition: 0.3s ease;
+            text-align: center;
+        }
+
+        .apply-btn:hover {
+            background-color: #3566b8;
+        }
+
+        .no-jobs-msg {
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+            grid-column: 1 / -1;
+            padding: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                margin-left: 0;
+            }
+        }

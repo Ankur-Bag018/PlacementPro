@@ -1,0 +1,137 @@
+ body {
+            margin: 0;
+            padding: 0;
+            background-color: #fbfdff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #ffffff !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 15px 20px;
+        }
+
+        .navbar-brand {
+            color: #4880e1 !important;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            margin-left: -70px;
+        }
+
+        .navbar-brand img {
+            height: 70px;
+            width: 200px;
+            object-fit: contain;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: #333 !important;
+            margin: 0 5px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 15vh;
+            background: linear-gradient(135deg, #1e4b9e 0%, #4880e1 100%);
+            color: white;
+            text-align: center;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .accordion-item {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            padding: 20px;
+            border-bottom: 3px solid transparent;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: #4880e1;
+            background-color: #f8faff;
+            border-bottom: 3px solid #4880e1;
+            box-shadow: none;
+        }
+
+        .job-badge {
+            background-color: #eef2fb;
+            color: #4880e1;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-left: 15px;
+        }
+
+        .table th {
+            color: #5a6a7c;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .table td {
+            vertical-align: middle;
+            color: #2c3e50;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .update-form {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .status-select {
+            font-size: 13px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        .btn-update {
+            background-color: #4880e1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 5px 12px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-update:hover {
+            background-color: #3566b8;
+        }
+
+        .btn-update:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .resume-link {
+            color: #28a745;
+            font-weight: bold;
+            text-decoration: none;
+        }
