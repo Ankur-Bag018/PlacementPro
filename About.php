@@ -146,41 +146,6 @@
     <section class="section">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-7">
-                    <!-- <h2 class="section-title">Get in Touch</h2>
-                    <p class="text-secondary">Have questions? Send us a message.</p> -->
-
-                    <!-- <form method="post" action="">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="name" class="form-label">Full Name</label>
-                                <input class="form-control" id="name" name="name"
-                                    type="text" placeholder="Your name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input class="form-control" id="email" name="email"
-                                    type="email" placeholder="you@example.com" required>
-                            </div>
-                            <div class="col-12">
-                                <label for="subject" class="form-label">Subject</label>
-                                <input class="form-control" id="subject" name="subject"
-                                    type="text" placeholder="Message subject" required>
-                            </div>
-                            <div class="col-12">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" id="message" name="message"
-                                    rows="4" placeholder="Write your message..." required></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary rounded-pill px-4" type="submit">
-                                    Send Message
-                                </button>
-                            </div>
-                        </div>
-                    </form> -->
-                </div>
-
                 <div class="col-lg-5">
                     <div class="contact-box">
                         <h4 class="mb-4">Contact Information</h4>

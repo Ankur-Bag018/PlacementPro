@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'Coordinator' && $_SESSION['role'] !== 'Recruiter')) {
+if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'Coordinator')) {
     echo "<script>alert('Access Denied!'); window.location.href='index.php';</script>";
     exit();
 }
@@ -9,12 +9,8 @@ if (!isset($_SESSION['role']) || ($_SESSION['role'] !== 'Coordinator' && $_SESSI
 $conn = new mysqli('localhost', 'root', '', 'placementpro');
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
-// ==========================================
-// ADDED LOGIC: Handle Job Deletion
-// ==========================================
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_job_id'])) {
     $del_job_id = $_POST['delete_job_id'];
-    // Delete the job (Because of ON DELETE CASCADE in your DB, this also deletes its applications automatically)
     $del_stmt = $conn->prepare("DELETE FROM jobs WHERE job_id = ?");
     $del_stmt->bind_param("i", $del_job_id);
     if ($del_stmt->execute()) {
@@ -25,8 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_job_id'])) {
     }
     $del_stmt->close();
 }
-// ==========================================
-
 // Fetch Jobs and their Applicants
 $sql = "SELECT j.job_id, j.job_title, j.company_name, 
                ja.application_id, ja.status, ja.applied_date, ja.resume_file,
@@ -109,10 +103,6 @@ if ($result && $result->num_rows > 0) {
 
                         <div id="collapse<?php echo $counter; ?>" class="accordion-collapse collapse" data-bs-parent="#jobsAccordion">
                             <div class="accordion-body">
-
-                                <!-- ========================================== -->
-                                <!-- ADDED: EDIT AND DELETE JOB BUTTONS -->
-                                <!-- ========================================== -->
                                 <div class="d-flex justify-content-end gap-2 mb-3 pb-2 border-bottom">
                                     <a href="EditJobs.php?job_id=<?php echo $job_id; ?>" class="btn btn-sm btn-warning fw-bold text-dark">
                                         ✏️ Edit Job
@@ -125,7 +115,6 @@ if ($result && $result->num_rows > 0) {
                                         </button>
                                     </form>
                                 </div>
-                                <!-- ========================================== -->
 
                                 <?php if ($applicant_count === 0): ?>
                                     <p class="text-center text-muted my-3">No students have applied yet.</p>

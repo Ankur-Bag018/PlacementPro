@@ -2,7 +2,7 @@
 session_start();
 
 // 1. VERIFY STUDENT LOGIN SESSION
-// (Assuming you save the user's email in $_SESSION['gmail_id'] when they log in)
+
 if (!isset($_SESSION['gmail_id'])) {
     // If not logged in, send them back to login page
     header("Location: Login.php");
@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 }
 
 // 2. VERIFY STUDENT DETAILS EXIST IN DATABASE
-// Check if the student has actually filled out their academic details
+
 $verify_sql = "SELECT id FROM student_details WHERE gmail_id = ?";
 $stmt = $conn->prepare($verify_sql);
 $stmt->bind_param("s", $student_email);
@@ -26,7 +26,7 @@ $stmt->execute();
 $verify_result = $stmt->get_result();
 
 if ($verify_result->num_rows === 0) {
-    // --- UPDATED LOGIC: Redirect to CompleteProfile.php if profile is not complete ---
+    // If student details are not found, redirect to CompleteProfile.php
     echo "<script>alert('Please complete your academic profile to view jobs.'); window.location.href='CompleteProfile.php';</script>";
     exit();
     // ---------------------------------------------------------------------------------

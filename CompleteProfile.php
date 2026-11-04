@@ -6,7 +6,7 @@ if (!isset($_SESSION['gmail_id'])) {
     exit();
 }
 
-// --- NEW LOGIC: Check if profile is already complete ---
+// Check if profile is already complete ---
 $conn = new mysqli('localhost', 'root', '', 'placementpro');
 if (!$conn->connect_error) {
     $check_sql = "SELECT id FROM student_details WHERE gmail_id = ?";
@@ -21,7 +21,6 @@ if (!$conn->connect_error) {
     $stmt->close();
 }
 $conn->close();
-// -------------------------------------------------------
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,6 +1,6 @@
 <?php
-// 1. Database Connection 
-// Create connection
+ session_start();
+
 $conn = new mysqli("localhost", "root", "", "placementpro");
 
 // Check connection
@@ -8,14 +8,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// 2. Check if the form was submitted
 if (isset($_POST['post_job'])) {
-    
-    
-   
-    $posted_by = 1; 
-    
-    // Retrieve all fields from the HTML form
+    $posted_by = $_SESSION['user_id'];
     $company_name = $_POST['company_name'];
     $job_title = $_POST['job_title'];
     $job_type = $_POST['job_type'];
@@ -25,16 +19,19 @@ if (isset($_POST['post_job'])) {
     $description = $_POST['description'];
     $deadline = $_POST['deadline'];
 
-    // 3. SQL Insert Query mapping to your exact table columns
-    
+
+if(isset($_SESSION['user_id'])) {
+    $logged_in_user_id = $_SESSION['user_id'];
+
     $sql = "INSERT INTO jobs (posted_by, company_name, job_title, job_type, salary, location, requirements, description, deadline) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+}
 
-    // 4. Prepare and execute (This protects your database from SQL injection)
+    
     $stmt = $conn->prepare($sql);
     
     if ($stmt) {
-        // "issssssss" means: 1 Integer (posted_by), followed by 8 Strings
+       
         $stmt->bind_param("issssssss", $posted_by, $company_name, $job_title, $job_type, $salary, $location, $requirements, $description, $deadline);
         
         if ($stmt->execute()) {
@@ -42,9 +39,8 @@ if (isset($_POST['post_job'])) {
             echo "<h2 style='color: #28a745;'>Job posted successfully!</h2>";
             echo "<a href='UplodeJobs.php' style='color: #007bff; text-decoration: none; font-weight: bold;'>Post another job</a>";
             echo "</div>";
-            // echo "<h3>Job posted successfully!</h3>";
-            // echo "<a href='post_job.html'>Post another job</a>";
-        } else {
+            } 
+        else {
             echo "Error inserting record: " . $stmt->error;
         }
         $stmt->close();
@@ -53,7 +49,6 @@ if (isset($_POST['post_job'])) {
     }
 }
 
-// 5. Close connection
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -63,14 +58,11 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post a Job - PlacementPro</title>
     <link href="CSS/UplodeJobs.css" rel="stylesheet">
-    <style>
-        /* General Page Styling */
-        
-    </style>
+    
 </head>
 <body>
 
-    <!-- Everything is inside this single div -->
+   
     <div class="form-container">
         <h2>Post a New Job</h2>
         

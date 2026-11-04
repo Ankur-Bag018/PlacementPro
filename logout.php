@@ -17,8 +17,7 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// 5. Redirect the user back to the main landing page
-// If your main homepage is named index.html instead of index.php, change it below.
+
 header("Location: index.php");
 exit();
 ?>

@@ -7,10 +7,7 @@ $conn = new mysqli("localhost", "root", "", "placementpro");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-// ==========================================
 // 1. Handle Dynamic "Update User" Form Submission
-// ==========================================
 if (isset($_POST['update_user'])) {
     $u_id = $_POST['user_id_hidden']; 
     $updates = [];
@@ -52,11 +49,7 @@ if (isset($_POST['update_user'])) {
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
 }
-
-
-// ==========================================
 // 2. Handle the "One-Click Delete" Action
-// ==========================================
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
 
@@ -72,10 +65,7 @@ if (isset($_GET['delete_id'])) {
         exit();
     }
 }
-
-// ==========================================
 // 3. Fetch specific user data if "Edit" is clicked
-// ==========================================
 $edit_user_data = null;
 if (isset($_GET['edit_id'])) {
     $edit_id = $_GET['edit_id'];
@@ -93,10 +83,7 @@ if (isset($_GET['edit_id'])) {
         $stmt->close();
     }
 }
-
-// ==========================================
 // 4. Fetch all users for the table
-// ==========================================
 $sql = "SELECT * FROM users";
 $result = $conn->query($sql);
 ?>

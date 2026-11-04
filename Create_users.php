@@ -1,35 +1,27 @@
 <?php
-// Database connection
-// Create connection
-$conn = new mysqli("localhost", "root", "", "placementpro");
 
-// Check connection
+$conn = new mysqli("localhost", "root", "", "placementpro");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the form data was submitted via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    // 1. Retrieve the form data using the 'name' attributes from your HTML
+    
     $full_name = trim($_POST['name']);
     $email = trim($_POST['email']);
     $phone_number = trim($_POST['phone']);
     $address = trim($_POST['address']);
     $role = trim($_POST['role']);
     
-    // 2. Hash the password securely before storing it
+    
     $raw_password = $_POST['password'];
     $password_hash = password_hash($raw_password, PASSWORD_DEFAULT);
-
-    // 3. Prepare the SQL INSERT query 
-    // This matches the exact columns in your users table: full_name, email, password_hash, phone_number, address, and role.
     $sql = "INSERT INTO users (full_name, email, password_hash, phone_number, address, role) VALUES (?, ?, ?, ?, ?, ?)";
     
     $stmt = $conn->prepare($sql);
     
     if ($stmt) {
-        // "ssssss" means we are binding 6 String values
         $stmt->bind_param("ssssss", $full_name, $email, $password_hash, $phone_number, $address, $role);
         
         if ($stmt->execute()) {
@@ -38,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<a href='login.php' style='color: #007bff; text-decoration: none; font-weight: bold;'>Go to Login Page</a>";
             echo "</div>";
         } else {
-            // This will catch errors like trying to register an email that already exists
             echo "Error creating profile: " . $stmt->error;
         }
         $stmt->close();

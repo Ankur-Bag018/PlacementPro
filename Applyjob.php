@@ -1,24 +1,17 @@
 <?php
 session_start();
-
-// 1. Ensure the student is logged in
 if (!isset($_SESSION['gmail_id'])) {
-    echo "<script>alert('Please log in to apply for jobs.'); window.location.href='LoginStudent.php';</script>";
+    echo "<script>alert('Please log in to apply for jobs.'); window.location.href='Login.php';</script>";
     exit();
 }
 
 $gmail_id = $_SESSION['gmail_id'];
-
-// 2. Ensure a job was actually selected
 if (!isset($_POST['job_id']) || empty($_POST['job_id'])) {
     header("Location: DashboardStudent.php");
     exit();
 }
 
 $job_id = $_POST['job_id'];
-
-// Database connection
-
 $conn = new mysqli("localhost", "root", "", "placementpro");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -101,7 +94,6 @@ $conn->close();
 <body>
 
     <div class="status-card">
-        <!-- Show Checkmark for Success, Cross for Error -->
         <div class="icon">
             <?php echo $status === 'success' ? '✅' : '❌'; ?>
         </div>
