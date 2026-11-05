@@ -40,14 +40,14 @@ if (isset($_POST['login_btn'])) {
                 $role = strtolower($user['role']);
 
                 if ($role === 'admin' || $role === 'college_admin') {
-                    header("Location: DashboardCollegeAdmin.php");
+                    header("Location: AdminSection/DashboardCollegeAdmin.php");
                     exit();
                 } elseif ($role === 'coordinator') {
-                    header("Location: DashboardCoordinator.php");
+                    header("Location: CoordinatorSection/DashboardCoordinator.php");
                     exit();
                 } elseif ($role === 'student') {
                     // Specific logic for Students: Check if profile is complete
-                    $check_profile_sql = "SELECT id FROM student_details WHERE gmail_id = ?";
+                    $check_profile_sql = "SELECT id,passport_size_photo_file,college_id_card_file FROM student_details WHERE gmail_id = ?";
                     $check_stmt = $conn->prepare($check_profile_sql);
                     $check_stmt->bind_param("s", $email);
                     $check_stmt->execute();
@@ -55,10 +55,10 @@ if (isset($_POST['login_btn'])) {
 
                     if ($profile_result->num_rows > 0) {
                         // Profile is complete, go to Dashboard
-                        header("Location: DashboardStudent.php");
+                        header("Location: StudentSection/DashboardStudent.php");
                     } else {
                         // Profile is NOT complete, go to Complete Profile page
-                        header("Location: CompleteProfile.php");
+                        header("Location: StudentSection/CompleteProfile.php");
                     }
                     $check_stmt->close();
                     exit();
