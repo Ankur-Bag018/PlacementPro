@@ -185,7 +185,7 @@ $conn->close();
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="DashboardStudent.php">
-                <img src="../Image/Logo.jpeg" alt="PlacementPro Logo" onerror="this.src='https://via.placeholder.com/200x70?text=PlacementPro'">
+                <img src="../Logo.jpeg" alt="PlacementPro Logo" onerror="this.src='https://via.placeholder.com/200x70?text=PlacementPro'">
             </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">

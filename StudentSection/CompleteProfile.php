@@ -9,14 +9,21 @@ if (!isset($_SESSION['gmail_id'])) {
 // Check if profile is already complete ---
 $conn = new mysqli('localhost', 'root', '', 'placementpro');
 if (!$conn->connect_error) {
-    $check_sql = "SELECT id, passport_size_photo_file ,college_id_card_file FROM student_details WHERE gmail_id = ?";
+    $check_sql = "SELECT passport_size_photo_file ,college_id_card_file FROM student_details WHERE gmail_id = ?";
     $stmt = $conn->prepare($check_sql);
     $stmt->bind_param("s", $_SESSION['gmail_id']);
     $stmt->execute();
-    if ($stmt->get_result()->num_rows > 0) {
-        // They already completed their profile! Send them to Dashboard.
-        header("Location: DashboardStudent.php");
-        exit();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows > 0) {
+        $profile_data = $result->fetch_assoc();
+        
+        // Ensure that the document fields are NOT empty before redirecting
+        if (!empty($profile_data['passport_size_photo_file']) && !empty($profile_data['college_id_card_file'])) {
+            // They already completed their profile! Send them to Dashboard.
+            header("Location: DashboardStudent.php");
+            exit();
+        }
     }
     $stmt->close();
 }
@@ -53,16 +60,9 @@ $conn->close();
         <div class="row g-4 justify-content-center">
             <div class="col-12 col-sm-6 col-lg-3">
                 <!-- Cleaned up links! -->
-                <a class="portal" href="StudentDetailsSubmit.php">
-                    <h2>Enter Your Details</h2>
-                    <span>Click Here</span>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <!-- Cleaned up links! -->
                 <a class="portal" href="StudentDocumentSubmit.php">
-                    <h2>Upload Your Documents</h2>
-                    <span>Upload</span>
+                    <h2>Complete Your Profile</h2>
+                    <span>Enter</span>
                 </a>
             </div>
             <p>

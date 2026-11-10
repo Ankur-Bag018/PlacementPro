@@ -47,17 +47,25 @@ if (isset($_POST['login_btn'])) {
                     exit();
                 } elseif ($role === 'student') {
                     // Specific logic for Students: Check if profile is complete
-                    $check_profile_sql = "SELECT id,passport_size_photo_file,college_id_card_file FROM student_details WHERE gmail_id = ?";
+                    $check_profile_sql = "SELECT passport_size_photo_file,college_id_card_file FROM student_details WHERE gmail_id = ?";
                     $check_stmt = $conn->prepare($check_profile_sql);
                     $check_stmt->bind_param("s", $email);
                     $check_stmt->execute();
                     $profile_result = $check_stmt->get_result();
 
                     if ($profile_result->num_rows > 0) {
-                        // Profile is complete, go to Dashboard
-                        header("Location: StudentSection/DashboardStudent.php");
+                        $profile_data = $profile_result->fetch_assoc();
+                        
+                        // Check if the documents are actually uploaded (not empty/null)
+                        if (!empty($profile_data['passport_size_photo_file']) && !empty($profile_data['college_id_card_file'])) {
+                            // Profile is complete, go to Dashboard
+                            header("Location: StudentSection/DashboardStudent.php");
+                        } else {
+                            // Academic details submitted, but documents are missing
+                            header("Location: StudentSection/CompleteProfile.php");
+                        }
                     } else {
-                        // Profile is NOT complete, go to Complete Profile page
+                        // Profile is NOT complete at all, go to Complete Profile page
                         header("Location: StudentSection/CompleteProfile.php");
                     }
                     $check_stmt->close();

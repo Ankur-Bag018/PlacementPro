@@ -65,7 +65,7 @@ if ($result && $result->num_rows > 0) {
 <body>
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="../Image/Logo.jpeg" alt="PlacementPro Logo"></a>
+            <a class="navbar-brand" href="#"><img src="../Logo.jpeg" alt="PlacementPro Logo"></a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="DashboardCoordinator.php">Coordinator Home</a></li>
