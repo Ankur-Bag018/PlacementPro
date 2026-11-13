@@ -49,9 +49,6 @@ $jobs_result = $conn->query($jobs_query);
     <!-- Bootstrap 5.3 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../CSS/DashboardStudent.css" rel="stylesheet">
-    <style>
-        
-    </style>
 </head>
 
 <body>
@@ -102,7 +99,14 @@ $jobs_result = $conn->query($jobs_query);
                             <span class="company-name"><?php echo htmlspecialchars($job['company_name']); ?></span>
 
                             <div class="job-details">
-                                <span><strong>Eligibility:</strong> <?php echo htmlspecialchars($job['requirements']); ?></span>
+                                <div class="eligibility-section">
+                                    <strong>Eligibility & Description:</strong> 
+                                    <div class="long-text">
+                                        <?php echo nl2br(htmlspecialchars($job['requirements'])); ?>
+                                    </div>
+                                    <!-- <span class="read-more-btn" onclick="toggleReadMore(this)">Read More</span> -->
+                                </div>
+                                
                                 <span><strong>Package/Salary:</strong> ₹ <?php echo htmlspecialchars($job['salary']); ?></span>
                                 <span><strong>Location:</strong> <?php echo htmlspecialchars($job['location']); ?></span>
                                 <span><strong>Deadline:</strong> <?php echo date("d M, Y", strtotime($job['deadline'])); ?></span>
@@ -134,6 +138,22 @@ $jobs_result = $conn->query($jobs_query);
 
     <!-- Bootstrap Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Read More Toggle Script -->
+    <script>
+        function toggleReadMore(btn) {
+            // Find the sibling element with the class 'long-text'
+            const textElement = btn.previousElementSibling;
+            
+            if (textElement.classList.contains('expanded')) {
+                textElement.classList.remove('expanded');
+                btn.innerText = 'Read More';
+            } else {
+                textElement.classList.add('expanded');
+                btn.innerText = 'Read Less';
+            }
+        }
+    </script>
 </body>
 
 </html>

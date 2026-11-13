@@ -58,10 +58,7 @@ body {
     color: var(--primary) !important;
 }
 
-/* =========================================
-   Hero / Introduction Section 
-   (Combines .introduction and .hero)
-   ========================================= */
+
 .introduction, .hero {
     display: flex;
     align-items: center;
@@ -103,9 +100,7 @@ body {
     font-size: clamp(1.8rem, 5vw, 3rem);
 }
 
-/* =========================================
-   Main Content Layout
-   ========================================= */
+
 main {
     flex-grow: 1;
     padding: 60px 20px 20px;
@@ -120,9 +115,7 @@ main {
     margin: 0 auto;
 }
 
-/* =========================================
-   Role Cards & Portals (.member / .portal)
-   ========================================= */
+
 .portal-link {
     text-decoration: none;
     color: inherit;
