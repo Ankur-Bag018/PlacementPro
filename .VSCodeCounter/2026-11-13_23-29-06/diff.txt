@@ -1,0 +1,72 @@
+Date : 2026-11-13 23:29:06
+Directory : c:\xampp\htdocs\PlacementPro
+Total : 41 files,  -61 codes, -21 comments, -10 blanks, all -92 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| PostCSS  |          4 |         30 |          1 |         10 |         41 |
+| PHP      |         36 |        -27 |        -22 |        -10 |        -59 |
+| Markdown |          1 |        -64 |          0 |        -10 |        -74 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                        |         41 |        -61 |        -21 |        -10 |        -92 |
+| . (Files)                                                                |         22 |     -2,170 |       -111 |       -378 |     -2,659 |
+| AdminSection                                                             |          2 |        281 |         18 |         56 |        355 |
+| CSS                                                                      |          4 |         30 |          1 |         10 |         41 |
+| CoordinatorSection                                                       |          6 |        652 |         11 |        121 |        784 |
+| StudentSection                                                           |          7 |      1,146 |         60 |        181 |      1,387 |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                 | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\xampp\htdocs\PlacementPro\About.php                                   | PHP      |        -33 |          0 |         -2 |        -35 |
+| c:\xampp\htdocs\PlacementPro\AdminSection\Create_users.php               | PHP      |         69 |          1 |         23 |         93 |
+| c:\xampp\htdocs\PlacementPro\AdminSection\DashboardCollegeAdmin.php      | PHP      |        212 |         17 |         33 |        262 |
+| c:\xampp\htdocs\PlacementPro\Applicantlist.php                           | PHP      |       -202 |         -6 |        -24 |       -232 |
+| c:\xampp\htdocs\PlacementPro\ApplyStatus.php                             | PHP      |       -119 |         -4 |        -18 |       -141 |
+| c:\xampp\htdocs\PlacementPro\Applyjob.php                                | PHP      |        -96 |         -6 |        -19 |       -121 |
+| c:\xampp\htdocs\PlacementPro\CSS\DashboardStudent.css                    | PostCSS  |         32 |          2 |          4 |         38 |
+| c:\xampp\htdocs\PlacementPro\CSS\StudentDocumentSubmit.css               | PostCSS  |         80 |          9 |         14 |        103 |
+| c:\xampp\htdocs\PlacementPro\CSS\StudentdetailsSubmit.css                | PostCSS  |        -82 |          0 |        -11 |        -93 |
+| c:\xampp\htdocs\PlacementPro\CSS\style.css                               | PostCSS  |          0 |        -10 |          3 |         -7 |
+| c:\xampp\htdocs\PlacementPro\CompleteProfile.php                         | PHP      |        -84 |         -4 |         -4 |        -92 |
+| c:\xampp\htdocs\PlacementPro\CoordinatorSection\Applicantlist.php        | PHP      |        198 |          1 |         22 |        221 |
+| c:\xampp\htdocs\PlacementPro\CoordinatorSection\DashboardCoordinator.php | PHP      |         61 |          0 |          9 |         70 |
+| c:\xampp\htdocs\PlacementPro\CoordinatorSection\EditJobs.php             | PHP      |        128 |          5 |         33 |        166 |
+| c:\xampp\htdocs\PlacementPro\CoordinatorSection\UplodeJobs.php           | PHP      |         77 |          1 |         27 |        105 |
+| c:\xampp\htdocs\PlacementPro\CoordinatorSection\update_status.php        | PHP      |         29 |          1 |          8 |         38 |
+| c:\xampp\htdocs\PlacementPro\CoordinatorSection\view_applicant.php       | PHP      |        159 |          3 |         22 |        184 |
+| c:\xampp\htdocs\PlacementPro\Create_users.php                            | PHP      |        -70 |        -11 |        -22 |       -103 |
+| c:\xampp\htdocs\PlacementPro\DashboardCollegeAdmin.php                   | PHP      |       -212 |        -25 |        -38 |       -275 |
+| c:\xampp\htdocs\PlacementPro\DashboardCoordinator.php                    | PHP      |        -61 |          0 |         -9 |        -70 |
+| c:\xampp\htdocs\PlacementPro\DashboardStudent.php                        | PHP      |       -113 |        -11 |        -18 |       -142 |
+| c:\xampp\htdocs\PlacementPro\EditDetails.php                             | PHP      |       -277 |        -13 |        -43 |       -333 |
+| c:\xampp\htdocs\PlacementPro\EditJobs.php                                | PHP      |       -128 |         -5 |        -33 |       -166 |
+| c:\xampp\htdocs\PlacementPro\Login.php                                   | PHP      |         92 |         12 |         17 |        121 |
+| c:\xampp\htdocs\PlacementPro\LoginCollegeAdmin.php                       | PHP      |        -87 |        -10 |        -16 |       -113 |
+| c:\xampp\htdocs\PlacementPro\README.md                                   | Markdown |        -64 |          0 |        -10 |        -74 |
+| c:\xampp\htdocs\PlacementPro\StudentDetailsSubmit.php                    | PHP      |       -153 |         -1 |        -22 |       -176 |
+| c:\xampp\htdocs\PlacementPro\StudentDocumentSubmit.php                   | PHP      |       -116 |         -3 |        -29 |       -148 |
+| c:\xampp\htdocs\PlacementPro\StudentProfile.php                          | PHP      |       -184 |         -6 |        -34 |       -224 |
+| c:\xampp\htdocs\PlacementPro\StudentSection\ApplyStatus.php              | PHP      |        119 |          4 |         18 |        141 |
+| c:\xampp\htdocs\PlacementPro\StudentSection\Applyjob.php                 | PHP      |         95 |          3 |         15 |        113 |
+| c:\xampp\htdocs\PlacementPro\StudentSection\CompleteProfile.php          | PHP      |        142 |          5 |         12 |        159 |
+| c:\xampp\htdocs\PlacementPro\StudentSection\DashboardStudent.php         | PHP      |        130 |         10 |         22 |        162 |
+| c:\xampp\htdocs\PlacementPro\StudentSection\EditDetails.php              | PHP      |        277 |         16 |         45 |        338 |
+| c:\xampp\htdocs\PlacementPro\StudentSection\StudentDocumentSubmit.php    | PHP      |        199 |         16 |         35 |        250 |
+| c:\xampp\htdocs\PlacementPro\StudentSection\StudentProfile.php           | PHP      |        184 |          6 |         34 |        224 |
+| c:\xampp\htdocs\PlacementPro\UplodeJobs.php                              | PHP      |        -75 |        -12 |        -26 |       -113 |
+| c:\xampp\htdocs\PlacementPro\index.php                                   | PHP      |          0 |          0 |          1 |          1 |
+| c:\xampp\htdocs\PlacementPro\logout.php                                  | PHP      |          0 |         -2 |          1 |         -1 |
+| c:\xampp\htdocs\PlacementPro\update_status.php                           | PHP      |        -29 |         -1 |         -8 |        -38 |
+| c:\xampp\htdocs\PlacementPro\view_applicant.php                          | PHP      |       -159 |         -3 |        -22 |       -184 |
+| Total                                                                    |          |        -61 |        -21 |        -10 |        -92 |
++--------------------------------------------------------------------------+----------+------------+------------+------------+------------+
