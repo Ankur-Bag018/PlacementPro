@@ -1,10 +1,10 @@
 # Details
 
-Date : 2026-11-13 23:29:06
+Date : 2026-11-15 01:00:50
 
 Directory c:\\xampp\\htdocs\\PlacementPro
 
-Total : 33 files,  4014 codes, 155 comments, 640 blanks, all 4809 lines
+Total : 35 files,  4125 codes, 222 comments, 681 blanks, all 5028 lines
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
@@ -18,6 +18,7 @@ Total : 33 files,  4014 codes, 155 comments, 640 blanks, all 4809 lines
 | [CSS/Applicantlist.css](/CSS/Applicantlist.css) | PostCSS | 119 | 0 | 18 | 137 |
 | [CSS/ApplyStatus.css](/CSS/ApplyStatus.css) | PostCSS | 115 | 5 | 19 | 139 |
 | [CSS/Applyjob.css](/CSS/Applyjob.css) | PostCSS | 38 | 0 | 1 | 39 |
+| [CSS/CompleteProfile.css](/CSS/CompleteProfile.css) | PostCSS | 50 | 1 | 0 | 51 |
 | [CSS/Create\_users.css](/CSS/Create_users.css) | PostCSS | 72 | 3 | 10 | 85 |
 | [CSS/DashboardStudent.css](/CSS/DashboardStudent.css) | PostCSS | 189 | 7 | 28 | 224 |
 | [CSS/EditDetails.css](/CSS/EditDetails.css) | PostCSS | 110 | 0 | 15 | 125 |
@@ -37,12 +38,13 @@ Total : 33 files,  4014 codes, 155 comments, 640 blanks, all 4809 lines
 | [Login.php](/Login.php) | PHP | 92 | 12 | 17 | 121 |
 | [StudentSection/ApplyStatus.php](/StudentSection/ApplyStatus.php) | PHP | 119 | 4 | 18 | 141 |
 | [StudentSection/Applyjob.php](/StudentSection/Applyjob.php) | PHP | 95 | 3 | 15 | 113 |
-| [StudentSection/CompleteProfile.php](/StudentSection/CompleteProfile.php) | PHP | 142 | 5 | 12 | 159 |
+| [StudentSection/CompleteProfile.php](/StudentSection/CompleteProfile.php) | PHP | 93 | 4 | 13 | 110 |
 | [StudentSection/DashboardStudent.php](/StudentSection/DashboardStudent.php) | PHP | 130 | 10 | 22 | 162 |
 | [StudentSection/EditDetails.php](/StudentSection/EditDetails.php) | PHP | 277 | 16 | 45 | 338 |
 | [StudentSection/StudentDocumentSubmit.php](/StudentSection/StudentDocumentSubmit.php) | PHP | 199 | 16 | 35 | 250 |
 | [StudentSection/StudentProfile.php](/StudentSection/StudentProfile.php) | PHP | 184 | 6 | 34 | 224 |
 | [index.php](/index.php) | PHP | 99 | 0 | 9 | 108 |
 | [logout.php](/logout.php) | PHP | 14 | 4 | 5 | 23 |
+| [placementpro.sql](/placementpro.sql) | MS SQL | 110 | 67 | 40 | 217 |
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)

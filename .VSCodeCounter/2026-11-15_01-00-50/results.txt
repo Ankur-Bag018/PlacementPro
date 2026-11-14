@@ -1,25 +1,26 @@
-Date : 2026-11-13 23:29:06
+Date : 2026-11-15 01:00:50
 Directory : c:\xampp\htdocs\PlacementPro
-Total : 33 files,  4014 codes, 155 comments, 640 blanks, all 4809 lines
+Total : 35 files,  4125 codes, 222 comments, 681 blanks, all 5028 lines
 
 Languages
 +----------+------------+------------+------------+------------+------------+
 | language | files      | code       | comment    | blank      | total      |
 +----------+------------+------------+------------+------------+------------+
-| PHP      |         19 |      2,450 |        105 |        407 |      2,962 |
-| PostCSS  |         14 |      1,564 |         50 |        233 |      1,847 |
+| PHP      |         19 |      2,401 |        104 |        408 |      2,913 |
+| PostCSS  |         15 |      1,614 |         51 |        233 |      1,898 |
+| MS SQL   |          1 |        110 |         67 |         40 |        217 |
 +----------+------------+------------+------------+------------+------------+
 
 Directories
 +--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
 | path                                                                     | files      | code       | comment    | blank      | total      |
 +--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| .                                                                        |         33 |      4,014 |        155 |        640 |      4,809 |
-| . (Files)                                                                |          4 |        371 |         16 |         49 |        436 |
+| .                                                                        |         35 |      4,125 |        222 |        681 |      5,028 |
+| . (Files)                                                                |          5 |        481 |         83 |         89 |        653 |
 | AdminSection                                                             |          2 |        281 |         18 |         56 |        355 |
-| CSS                                                                      |         14 |      1,564 |         50 |        233 |      1,847 |
+| CSS                                                                      |         15 |      1,614 |         51 |        233 |      1,898 |
 | CoordinatorSection                                                       |          6 |        652 |         11 |        121 |        784 |
-| StudentSection                                                           |          7 |      1,146 |         60 |        181 |      1,387 |
+| StudentSection                                                           |          7 |      1,097 |         59 |        182 |      1,338 |
 +--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
 
 Files
@@ -33,6 +34,7 @@ Files
 | c:\xampp\htdocs\PlacementPro\CSS\Applicantlist.css                       | PostCSS  |        119 |          0 |         18 |        137 |
 | c:\xampp\htdocs\PlacementPro\CSS\ApplyStatus.css                         | PostCSS  |        115 |          5 |         19 |        139 |
 | c:\xampp\htdocs\PlacementPro\CSS\Applyjob.css                            | PostCSS  |         38 |          0 |          1 |         39 |
+| c:\xampp\htdocs\PlacementPro\CSS\CompleteProfile.css                     | PostCSS  |         50 |          1 |          0 |         51 |
 | c:\xampp\htdocs\PlacementPro\CSS\Create_users.css                        | PostCSS  |         72 |          3 |         10 |         85 |
 | c:\xampp\htdocs\PlacementPro\CSS\DashboardStudent.css                    | PostCSS  |        189 |          7 |         28 |        224 |
 | c:\xampp\htdocs\PlacementPro\CSS\EditDetails.css                         | PostCSS  |        110 |          0 |         15 |        125 |
@@ -52,12 +54,13 @@ Files
 | c:\xampp\htdocs\PlacementPro\Login.php                                   | PHP      |         92 |         12 |         17 |        121 |
 | c:\xampp\htdocs\PlacementPro\StudentSection\ApplyStatus.php              | PHP      |        119 |          4 |         18 |        141 |
 | c:\xampp\htdocs\PlacementPro\StudentSection\Applyjob.php                 | PHP      |         95 |          3 |         15 |        113 |
-| c:\xampp\htdocs\PlacementPro\StudentSection\CompleteProfile.php          | PHP      |        142 |          5 |         12 |        159 |
+| c:\xampp\htdocs\PlacementPro\StudentSection\CompleteProfile.php          | PHP      |         93 |          4 |         13 |        110 |
 | c:\xampp\htdocs\PlacementPro\StudentSection\DashboardStudent.php         | PHP      |        130 |         10 |         22 |        162 |
 | c:\xampp\htdocs\PlacementPro\StudentSection\EditDetails.php              | PHP      |        277 |         16 |         45 |        338 |
 | c:\xampp\htdocs\PlacementPro\StudentSection\StudentDocumentSubmit.php    | PHP      |        199 |         16 |         35 |        250 |
 | c:\xampp\htdocs\PlacementPro\StudentSection\StudentProfile.php           | PHP      |        184 |          6 |         34 |        224 |
 | c:\xampp\htdocs\PlacementPro\index.php                                   | PHP      |         99 |          0 |          9 |        108 |
 | c:\xampp\htdocs\PlacementPro\logout.php                                  | PHP      |         14 |          4 |          5 |         23 |
-| Total                                                                    |          |      4,014 |        155 |        640 |      4,809 |
+| c:\xampp\htdocs\PlacementPro\placementpro.sql                            | MS SQL   |        110 |         67 |         40 |        217 |
+| Total                                                                    |          |      4,125 |        222 |        681 |      5,028 |
 +--------------------------------------------------------------------------+----------+------------+------------+------------+------------+

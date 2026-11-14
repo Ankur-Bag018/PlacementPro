@@ -1,23 +1,26 @@
 # Diff Summary
 
-Date : 2026-11-02 21:29:55
+Date : 2026-11-15 01:00:50
 
 Directory c:\\xampp\\htdocs\\PlacementPro
 
-Total : 30 files,  0 codes, 0 comments, 0 blanks, all 0 lines
+Total : 3 files,  111 codes, 67 comments, 41 blanks, all 219 lines
 
 [Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| PostCSS | 30 | 0 | 0 | 0 | 0 |
+| MS SQL | 1 | 110 | 67 | 40 | 217 |
+| PostCSS | 1 | 50 | 1 | 0 | 51 |
+| PHP | 1 | -49 | -1 | 1 | -49 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 30 | 0 | 0 | 0 | 0 |
-| . (Files) | 15 | -1,534 | -49 | -223 | -1,806 |
-| CSS | 15 | 1,534 | 49 | 223 | 1,806 |
+| . | 3 | 111 | 67 | 41 | 219 |
+| . (Files) | 1 | 110 | 67 | 40 | 217 |
+| CSS | 1 | 50 | 1 | 0 | 51 |
+| StudentSection | 1 | -49 | -1 | 1 | -49 |
 
 [Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)
